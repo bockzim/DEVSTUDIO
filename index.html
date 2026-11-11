@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DevStudio | Sites que convertem visitantes em clientes</title>
+<meta name="theme-color" content="#07040D">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="DevStudio | Sites que convertem visitantes em clientes">
+<meta property="og:description" content="Sites rápidos, bonitos e feitos para vender. Monte seu orçamento em minutos.">
+<meta property="og:type" content="website">
+<meta name="description" content="Desenvolvo sites rápidos, bonitos e feitos para vender. Veja meus trabalhos e peça um orçamento em minutos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script src="js/tailwind.config.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="font-body antialiased overflow-x-hidden">
+<div class="glow" id="glow"></div>
+
+<header class="sticky z-50 backdrop-blur-xl bg-ink/70 border-b border-line" style="top:env(safe-area-inset-top,0px)">
+  <div class="max-w-7xl mx-auto px-5 h-16 flex items-center justify-between">
+    <a href="#top" class="font-display font-bold text-lg tracking-tight">dev<span class="text-volt">studio</span></a>
+    <nav class="hidden md:flex gap-8 text-sm font-semibold text-lilac">
+      <a href="#trabalhos" class="hover:text-white">Trabalhos</a><a href="#servicos" class="hover:text-white">Serviços</a><a href="#orcamento" class="hover:text-white">Orçamento</a><a href="#processo" class="hover:text-white">Processo</a><a href="#faq" class="hover:text-white">Dúvidas</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="#contato" class="btn-volt rounded-full px-4 sm:px-5 py-3 text-sm whitespace-nowrap">Quero meu site</a>
+      <button id="menuBtn" class="md:hidden p-3 -mr-2" aria-label="Abrir menu" aria-expanded="false"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18M3 17h18"/></svg></button>
+    </div>
+  </div>
+  <div id="menu" class="hidden md:hidden border-t border-line px-5 py-4 flex flex-col gap-4 font-semibold">
+    <a href="#trabalhos">Trabalhos</a><a href="#servicos">Serviços</a><a href="#orcamento">Orçamento</a><a href="#processo">Processo</a><a href="#faq">Dúvidas</a><a href="#contato" class="text-volt">Quero meu site</a>
+  </div>
+</header>
+
+<main id="top" class="relative z-10">
+<!-- HERO -->
+<section class="relative pt-16 pb-24 md:pt-24">
+  <div class="absolute inset-0 grid-bg -z-10"></div>
+  <div class="max-w-7xl mx-auto px-5 grid lg:grid-cols-[1.15fr_.85fr] gap-14 items-center">
+    <div class="hero-in">
+      <p class="inline-flex items-center gap-2 text-sm text-lilac border border-line rounded-full px-4 py-1.5"><span class="w-2 h-2 rounded-full bg-volt animate-pulse"></span><span id="slots">2 vagas abertas para este mês</span></p>
+      <h1 class="h1 text-[2.5rem] sm:text-6xl xl:text-7xl font-extrabold mt-6">Seu site vende<br>enquanto você <span class="text-volt" id="rot">dorme.</span></h1>
+      <p class="text-lg text-lilac/90 mt-6 max-w-xl leading-relaxed">Desenvolvo sites rápidos, com design sob medida e código limpo, pensados para transformar visitas em contatos reais. Nada de template genérico.</p>
+      <div class="flex flex-col sm:flex-row gap-4 mt-9 [&>a]:text-center">
+        <a href="#orcamento" class="btn-volt rounded-full px-7 py-4">Calcular meu orçamento</a>
+        <a href="#trabalhos" class="rounded-full px-7 py-4 border border-line font-semibold hover:border-violet transition">Ver trabalhos</a>
+      </div>
+    </div>
+    <!-- live mock -->
+    <div class="relative hero-in">
+      <div class="absolute -inset-6 bg-violet/30 blur-3xl rounded-full"></div>
+      <div class="card relative overflow-hidden shadow-2xl shadow-violet/20">
+        <div class="flex items-center gap-2 px-4 py-3 border-b border-line">
+          <i class="w-3 h-3 rounded-full bg-[#ff5f57]"></i><i class="w-3 h-3 rounded-full bg-[#febc2e]"></i><i class="w-3 h-3 rounded-full bg-[#28c840]"></i>
+          <span class="ml-3 text-xs text-lilac/70 bg-ink rounded-md px-3 py-1 flex-1 truncate">seucliente.com.br</span>
+        </div>
+        <div class="p-6 space-y-5">
+          <div class="flex justify-between items-end">
+            <div><p class="text-xs text-lilac/70">Leads gerados hoje</p><p class="font-display text-5xl font-bold text-volt" id="leads">0</p></div>
+            <div class="text-right"><p class="text-xs text-lilac/70">Conversão</p><p class="font-display text-2xl font-bold" id="conv">0%</p></div>
+          </div>
+          <div class="flex items-end gap-2 h-28" id="bars"></div>
+          <div class="flex items-center gap-3 bg-ink rounded-xl p-3 border border-line">
+            <div class="w-9 h-9 rounded-full bg-violet grid place-items-center font-bold">M</div>
+            <p class="text-sm"><b>Marina</b> pediu um orçamento<br><span class="text-lilac/70 text-xs" id="ago">agora mesmo</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="border-y border-line bg-panel overflow-hidden py-5" aria-hidden="true">
+  <div class="marquee flex w-max gap-12 font-display font-bold text-xl text-lilac/60 whitespace-nowrap">
+    <script>document.write(Array(2).fill('<span class="flex gap-12"><span>Next.js</span><span>React</span><span>Tailwind</span><span>TypeScript</span><span>Node</span><span>SEO técnico</span><span>Performance 95+</span><span>Acessibilidade</span><span>Integrações</span></span>').join(''))</script>
+  </div>
+</div>
+
+<!-- STATS -->
+<section class="max-w-7xl mx-auto px-5 py-20 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+  <div><p class="font-display text-4xl md:text-5xl font-bold text-volt"><span data-count="100">0</span>+</p><p class="text-lilac/80 mt-2 text-sm">sites entregues</p></div>
+  <div><p class="font-display text-4xl md:text-5xl font-bold"><span data-count="98">0</span></p><p class="text-lilac/80 mt-2 text-sm">nota média no Lighthouse</p></div>
+  <div><p class="font-display text-4xl md:text-5xl font-bold text-volt"><span data-count="7">0</span> dias</p><p class="text-lilac/80 mt-2 text-sm">se você pedir entrega rápida</p></div>
+  <div><p class="font-display text-4xl md:text-5xl font-bold"><span data-count="100">0</span>%</p><p class="text-lilac/80 mt-2 text-sm">código seu, sem amarras</p></div>
+</section>
+
+<!-- TRABALHOS -->
+<section id="trabalhos" class="max-w-7xl mx-auto px-5 py-20">
+  <div class="flex flex-wrap items-end justify-between gap-6 mb-10">
+    <h2 class="h1 text-3xl md:text-5xl font-bold max-w-2xl">Sites no ar que você pode abrir agora</h2>
+    <div class="flex gap-2" id="filters" role="group" aria-label="Filtrar projetos">
+      <button class="chip" data-f="all" aria-pressed="true">Todos</button>
+      <button class="chip" data-f="entregue" aria-pressed="false">Entregues</button>
+      <button class="chip" data-f="demo" aria-pressed="false">Demos</button>
+    </div>
+  </div>
+  <div id="projects" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+</section>
+
+<!-- SERVICOS -->
+<section id="servicos" class="max-w-7xl mx-auto px-5 py-20">
+  <h2 class="h1 text-3xl md:text-5xl font-bold max-w-3xl mb-12">Tudo que um site precisa para trazer cliente</h2>
+  <div class="grid md:grid-cols-6 gap-6">
+    <div class="card p-8 md:col-span-4 bg-gradient-to-br from-violet/30 to-panel">
+      <h3 class="font-display text-2xl font-bold">Landing pages de alta conversão</h3>
+      <p class="text-lilac/90 mt-3 max-w-lg">Estrutura pensada para um único objetivo: o visitante clicar no botão. Texto, hierarquia e velocidade trabalhando juntos.</p>
+    </div>
+    <div class="card p-8 md:col-span-2"><h3 class="font-display text-xl font-bold">Sites institucionais</h3><p class="text-lilac/90 mt-3 text-sm">Sua empresa com cara de gigante, em qualquer tela.</p></div>
+    <div class="card p-8 md:col-span-2"><h3 class="font-display text-xl font-bold">Lojas e catálogos</h3><p class="text-lilac/90 mt-3 text-sm">Pagamento, estoque e checkout integrados.</p></div>
+    <div class="card p-8 md:col-span-2"><h3 class="font-display text-xl font-bold">Sistemas e painéis</h3><p class="text-lilac/90 mt-3 text-sm">Áreas de login, dashboards e automações sob medida.</p></div>
+    <div class="card p-8 md:col-span-2 border-volt/40"><h3 class="font-display text-xl font-bold text-volt">SEO e performance</h3><p class="text-lilac/90 mt-3 text-sm">Carrega em menos de 2 segundos e aparece no Google.</p></div>
+  </div>
+</section>
+
+<!-- ORCAMENTO -->
+<section id="orcamento" class="max-w-5xl mx-auto px-5 py-20">
+  <div class="card p-6 md:p-12 relative overflow-hidden">
+    <div class="absolute -right-24 -top-24 w-72 h-72 bg-volt/10 blur-3xl rounded-full"></div>
+    <h2 class="h1 text-3xl md:text-4xl font-bold">Monte seu orçamento agora</h2>
+    <p class="text-lilac/90 mt-3">Escolha o que precisa e veja uma estimativa na hora. Sem compromisso.</p>
+    <div class="grid md:grid-cols-2 gap-10 mt-10 relative">
+      <div class="space-y-6">
+        <label class="block"><span class="font-semibold text-sm">Tipo de projeto</span><select id="qType" class="mt-2"></select></label>
+        <fieldset><legend class="font-semibold text-sm mb-3">Extras</legend><div id="qExtras" class="space-y-3"></div></fieldset>
+        <label class="block"><span class="font-semibold text-sm">Prazo</span>
+          <select id="qRush" class="mt-2"><option value="1">Normal (3 semanas)</option><option value="1.3">Rápido (7 dias, +30%)</option></select></label>
+      </div>
+      <div class="bg-ink border border-line rounded-2xl p-8 flex flex-col justify-between">
+        <div><p class="text-sm text-lilac/80">Investimento estimado</p>
+        <p class="font-display text-4xl lg:text-5xl font-extrabold text-volt mt-2" id="qPrice">R$ 0</p>
+        <p class="text-xs text-lilac/70 mt-3">Valor de referência. O orçamento final é fechado após conversa rápida sobre o escopo.</p></div>
+        <a id="qSend" href="#" target="_blank" rel="noopener" class="btn-volt rounded-full px-6 py-4 text-center mt-8">Enviar para o WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSO -->
+<section id="processo" class="max-w-7xl mx-auto px-5 py-20">
+  <h2 class="h1 text-3xl md:text-5xl font-bold max-w-3xl mb-12">Do primeiro contato ao site no ar</h2>
+  <ol class="grid md:grid-cols-4 gap-6">
+    <li class="card p-7"><span class="font-display text-volt text-3xl font-bold">1</span><h3 class="font-bold text-lg mt-4">Conversa</h3><p class="text-sm text-lilac/90 mt-2">Entendo seu negócio, seu cliente ideal e a meta do site.</p></li>
+    <li class="card p-7"><span class="font-display text-volt text-3xl font-bold">2</span><h3 class="font-bold text-lg mt-4">Protótipo</h3><p class="text-sm text-lilac/90 mt-2">Você vê o design e aprova antes de eu codar.</p></li>
+    <li class="card p-7"><span class="font-display text-volt text-3xl font-bold">3</span><h3 class="font-bold text-lg mt-4">Desenvolvimento</h3><p class="text-sm text-lilac/90 mt-2">Código limpo, responsivo e testado em vários dispositivos.</p></li>
+    <li class="card p-7"><span class="font-display text-volt text-3xl font-bold">4</span><h3 class="font-bold text-lg mt-4">Entrega e suporte</h3><p class="text-sm text-lilac/90 mt-2">Publicação, treinamento e 30 dias de suporte incluso.</p></li>
+  </ol>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="max-w-7xl mx-auto px-5 py-20">
+  <h2 class="h1 text-3xl md:text-5xl font-bold mb-12">Quem já trabalhou comigo</h2>
+  <div class="grid md:grid-cols-3 gap-6">
+    <figure class="card p-8"><blockquote class="leading-relaxed">“Em duas semanas o site já estava gerando orçamentos. Meu antigo nem abria direito no celular.”</blockquote><figcaption class="mt-6 text-sm"><b>Nome do cliente</b><br><span class="text-lilac/70">Clínica Exemplo</span></figcaption></figure>
+    <figure class="card p-8 md:translate-y-6"><blockquote class="leading-relaxed">“Entendeu o que eu precisava sem eu explicar duas vezes. Entregou antes do prazo.”</blockquote><figcaption class="mt-6 text-sm"><b>Nome do cliente</b><br><span class="text-lilac/70">Loja Exemplo</span></figcaption></figure>
+    <figure class="card p-8"><blockquote class="leading-relaxed">“O visual ficou muito acima do que eu esperava pelo preço. Já indiquei para dois amigos.”</blockquote><figcaption class="mt-6 text-sm"><b>Nome do cliente</b><br><span class="text-lilac/70">Escritório Exemplo</span></figcaption></figure>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="max-w-3xl mx-auto px-5 py-24">
+  <h2 class="h1 text-3xl md:text-4xl font-bold mb-10">Perguntas frequentes</h2>
+  <div class="space-y-3">
+    <details class="card px-6 py-5"><summary class="flex justify-between font-semibold">Quanto tempo leva para ficar pronto?<span class="plus text-volt text-2xl leading-none">+</span></summary><p class="mt-3 text-lilac/90">O prazo padrão é de 3 semanas. Se você tem pressa, o modo rápido entrega em 7 dias, com acréscimo de 30% no valor.</p></details>
+    <details class="card px-6 py-5"><summary class="flex justify-between font-semibold">O site vai funcionar bem no celular?<span class="plus text-volt text-2xl leading-none">+</span></summary><p class="mt-3 text-lilac/90">Sim. Desenvolvo pensando primeiro no celular e testo em várias telas antes da entrega.</p></details>
+    <details class="card px-6 py-5"><summary class="flex justify-between font-semibold">Como funciona o pagamento?<span class="plus text-volt text-2xl leading-none">+</span></summary><p class="mt-3 text-lilac/90">50% na aprovação do protótipo e 50% na entrega. Aceito Pix e cartão.</p></details>
+    <details class="card px-6 py-5"><summary class="flex justify-between font-semibold">Posso editar o conteúdo depois?<span class="plus text-volt text-2xl leading-none">+</span></summary><p class="mt-3 text-lilac/90">Pode. Se precisar de painel de edição, incluo no projeto e ensino você a usar.</p></details>
+    <details class="card px-6 py-5"><summary class="flex justify-between font-semibold">Hospedagem e domínio estão inclusos?<span class="plus text-volt text-2xl leading-none">+</span></summary><p class="mt-3 text-lilac/90">Eu configuro tudo na sua conta. Você fica dono do domínio e da hospedagem, sem mensalidade escondida.</p></details>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato" class="px-5 pb-24">
+  <div class="max-w-5xl mx-auto rounded-[28px] p-8 md:p-14 bg-gradient-to-br from-violet via-[#5B1FC9] to-[#2A0E5E] relative overflow-hidden">
+    <div class="absolute -right-10 -bottom-16 font-display text-[12rem] font-extrabold text-white/5 leading-none select-none" aria-hidden="true">.dev</div>
+    <div class="grid md:grid-cols-2 gap-10 relative">
+      <div>
+        <h2 class="h1 text-3xl md:text-5xl font-extrabold">Vamos tirar seu projeto do papel?</h2>
+        <p class="mt-5 text-white/85 max-w-md">Conte o que você precisa. Respondo em até 24 horas com um plano e um valor fechado.</p>
+      </div>
+      <div id="formBox" class="bg-ink/70 backdrop-blur rounded-2xl p-6 space-y-4">
+        <input id="fName" placeholder="Seu nome" aria-label="Seu nome" autocomplete="name">
+        <input id="fMail" type="email" placeholder="E-mail" aria-label="E-mail" autocomplete="email">
+        <textarea id="fMsg" rows="3" placeholder="O que você quer construir?" aria-label="Mensagem"></textarea>
+        <p id="fErr" class="text-sm text-[#ff8a8a] hidden" role="alert">Preencha nome e mensagem para continuar.</p>
+        <button id="fSend" class="btn-volt rounded-full px-6 py-4 w-full">Enviar mensagem</button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="border-t border-line pt-10 pb-24 px-5 text-sm text-lilac/70">
+  <div class="max-w-7xl mx-auto flex flex-wrap justify-between gap-4">
+    <p>© <span id="yr"></span> DevStudio. Todos os direitos reservados.</p>
+    <p class="flex gap-6"><a href="#" id="lnWa" target="_blank" rel="noopener" class="hover:text-white">WhatsApp</a><a href="#" id="lnIg" target="_blank" rel="noopener" class="hover:text-white">Instagram</a></p>
+  </div>
+</footer>
+
+<a id="wpp" href="#" target="_blank" rel="noopener" aria-label="Falar no WhatsApp" class="fixed right-5 z-50 w-14 h-14 rounded-full bg-volt text-ink grid place-items-center shadow-xl hover:scale-110 transition" style="bottom:calc(20px + env(safe-area-inset-bottom,0px))">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.2 14c-.2.6-1.300 1.200-1.800 1.200-.5.100-1 .2-3.300-.7-2.800-1.200-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.200.1.300 0 .5l-.4.600c-.1.100-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.200 1 2.100 1.300 2.400 1.500.3.100.5.100.6-.1l.9-1.100c.2-.3.400-.2.600-.1l1.900.9c.3.100.5.200.5.300.1.200.1.800-.1 1.300z"/></svg>
+</a>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

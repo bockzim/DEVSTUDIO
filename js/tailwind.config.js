@@ -1,0 +1,1 @@
+tailwind.config={theme:{extend:{colors:{ink:'#07040D',panel:'#110B1E',line:'#2A1F42',violet:'#8B3DFF',lilac:'#C4A1FF',volt:'#D4FF3A'},fontFamily:{display:['Unbounded','Arial Black','sans-serif'],body:['Manrope','system-ui','sans-serif']}}}}
