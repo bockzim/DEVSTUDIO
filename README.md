@@ -15,6 +15,7 @@ Para publicar: envie a pasta inteira para Netlify, Vercel, GitHub Pages ou qualq
 | `assets/favicon.svg` | Ícone da aba |
 | `assets/previews/` | Prévias dos sites (veja abaixo) |
 | `demos/forma-personal/` | Site demo completo do personal trainer (HTML, CSS e JS próprios) |
+| `demos/odonto-sorriso/` | Site demo completo da clínica (agendamento, simulador de parcelas, aberto agora) |
 | `robots.txt` | Liberação para buscadores |
 
 ## Como editar
@@ -33,8 +34,8 @@ Se o arquivo existir, ele substitui a réplica automaticamente. Se não existir,
 
 ## Pendências
 - Trocar o `instagram` em `js/config.js` pelo @ real.
-- Demos sem site ainda: `barbearia-navalha` e `odonto-sorriso`. A `forma-personal` já está em `demos/forma-personal/`.
-- Trocar o número do WhatsApp da demo Forma Personal (`WHATS` no topo de `demos/forma-personal/app.js`) se não quiser receber os contatos dela.
+- Demo sem site ainda: `barbearia-navalha`. `forma-personal` e `odonto-sorriso` já estão em `demos/`.
+- Trocar o número do WhatsApp das demos (`WHATS` em `demos/forma-personal/app.js` e `CFG.whatsapp` em `demos/odonto-sorriso/js/main.js`) se não quiser receber os contatos.
 - Substituir os depoimentos fictícios e conferir o número de nota 98 do Lighthouse.
 
 ## Performance
