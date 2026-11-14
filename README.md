@@ -14,6 +14,7 @@ Para publicar: envie a pasta inteira para Netlify, Vercel, GitHub Pages ou qualq
 | `js/main.js` | Comportamento: menu mobile, hero ao vivo, contadores, filtro de projetos, calculadora, formulário |
 | `assets/favicon.svg` | Ícone da aba |
 | `assets/previews/` | Prévias dos sites (veja abaixo) |
+| `demos/forma-personal/` | Site demo completo do personal trainer (HTML, CSS e JS próprios) |
 | `robots.txt` | Liberação para buscadores |
 
 ## Como editar
@@ -26,13 +27,14 @@ Cada card mostra uma réplica da tela inicial do site. Para usar um print real:
 1. Tire um print da primeira dobra do site (1280x800 funciona bem).
 2. Salve como `assets/previews/<slug>.webp`.
 
-Já incluídos: `chanandry-arquitetura`, `chanandry-imobiliaria` e `campero`. Faltam as 3 demos.
+Já incluídos: `chanandry-arquitetura`, `chanandry-imobiliaria` e `campero`. As demos sem print usam a réplica.
 Slugs de todos: `chanandry-arquitetura`, `chanandry-imobiliaria`, `campero`, `barbearia-navalha`, `odonto-sorriso`, `forma-personal`.
 Se o arquivo existir, ele substitui a réplica automaticamente. Se não existir, a réplica continua aparecendo.
 
 ## Pendências
 - Trocar o `instagram` em `js/config.js` pelo @ real.
-- Enviar os prints das 3 demos restantes (`barbearia-navalha`, `odonto-sorriso`, `forma-personal`).
+- Demos sem site ainda: `barbearia-navalha` e `odonto-sorriso`. A `forma-personal` já está em `demos/forma-personal/`.
+- Trocar o número do WhatsApp da demo Forma Personal (`WHATS` no topo de `demos/forma-personal/app.js`) se não quiser receber os contatos dela.
 - Substituir os depoimentos fictícios e conferir o número de nota 98 do Lighthouse.
 
 ## Performance

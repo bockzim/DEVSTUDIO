@@ -27,8 +27,8 @@ const CFG={
     {slug:"odonto-sorriso",t:"Odonto Sorriso",k:"demo",host:"odontosorriso.com.br",url:"",
      d:"Demo de clínica com tratamentos, equipe, dúvidas frequentes e contato rápido.",tags:["Institucional","SEO"],a:"#2DD4BF",b:"#0B2A33",
      hero:{bg:"linear-gradient(160deg,#0b2a33,#0f4350)",fg:"#EAFBF8",ac:"#2DD4BF",on:"#0b2a33",tag:"Odontologia",title:"Seu sorriso em boas mãos.",sub:"Limpeza, clareamento e ortodontia perto de você.",cta:"Marcar avaliação",chips:["Clareamento","Ortodontia"]}},
-    {slug:"forma-personal",t:"Forma Personal",k:"demo",host:"formapersonal.com.br",url:"",
-     d:"Demo de landing para personal trainer, com planos, resultados e botão de contato fixo.",tags:["Landing","Conversão"],a:"#D4FF3A",b:"#3B1A7A",
+    {slug:"forma-personal",t:"Forma Personal",k:"demo",host:"bockzim.github.io/DEVSTUDIO/demos/forma-personal",url:"demos/forma-personal/",
+     d:"Demo de landing para personal trainer, com quiz que indica o plano ideal, planos mensal e trimestral e contato por WhatsApp.",tags:["Quiz","Planos","WhatsApp"],a:"#D4FF3A",b:"#3B1A7A",
      hero:{bg:"linear-gradient(160deg,#2a1158,#4a1fa0)",fg:"#FFFFFF",ac:"#D4FF3A",on:"#1a0a3a",tag:"Personal trainer",title:"Treino que cabe na sua rotina.",sub:"Planos online e presenciais com acompanhamento.",cta:"Quero começar",chips:["Plano online","Presencial"]}}
   ]
 };
