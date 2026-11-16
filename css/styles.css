@@ -43,3 +43,4 @@ html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 112px)}
 .opt input{position:absolute;opacity:0;pointer-events:none}
 .opt:has(input:checked){border-color:#D4FF3A;background:#17102a;box-shadow:0 0 0 1px #D4FF3A inset}
 .opt:has(input:focus-visible){outline:2px solid #D4FF3A;outline-offset:2px}
+.opt.tier{padding:1.1rem 1rem}.opt.tier ul{list-style:none;padding:0}

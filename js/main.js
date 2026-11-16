@@ -13,6 +13,7 @@ mn.querySelectorAll("a").forEach(a=>a.onclick=()=>{mn.classList.add("hidden");mb
 const g=$("#glow");
 if(matchMedia("(hover:hover)").matches)addEventListener("pointermove",e=>{g.style.left=e.clientX+"px";g.style.top=e.clientY+"px"});else g.style.display="none";
 
+$("#slots").textContent=(3+Math.floor(Math.random()*3))+" vagas abertas para este mês";
 // rotating word
 const words=["dorme.","trabalha.","viaja.","descansa."];let wi=0;
 setInterval(()=>{wi=(wi+1)%words.length;$("#rot").textContent=words[wi]},2400);
@@ -29,8 +30,8 @@ setInterval(()=>{const n=names[Math.floor(Math.random()*names.length)];const p=$
 
 // counters
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;io.unobserve(e.target);const el=e.target,end=+el.dataset.count;let s=null;
- const step=t=>{s??=t;const p=Math.min((t-s)/1400,1);el.textContent=Math.round(end*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step)}),{threshold:.6});
-document.querySelectorAll("[data-count]").forEach(el=>io.observe(el));
+ const step=t=>{s??=t;const p=Math.min((t-s)/1400,1);el.textContent=Math.round(end*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step)}),{threshold:.3});
+document.querySelectorAll("[data-count]").forEach(el=>{const r=el.getBoundingClientRect();if(r.top>innerHeight)el.textContent="0";io.observe(el)});
 
 // projects
 const pj=$("#projects");
@@ -65,26 +66,44 @@ document.querySelectorAll("#filters .chip").forEach(c=>c.onclick=()=>{document.q
 
 // calculator
 const OFF=CFG.off||.65,was=p=>Math.round(p/(1-OFF)/10)*10;
-const qt=$("#qType"),qe=$("#qExtras");
-qt.innerHTML=CFG.types.map((t,i)=>`<label class="opt"><input type="radio" name="qt" value="${i}" ${i===0?"checked":""}><span class="block font-semibold text-sm leading-tight">${t.n}</span><s class="block text-lilac/60 text-xs mt-2">${brl(was(t.p))}</s><span class="block font-display font-bold text-volt">${brl(t.p)}</span></label>`).join("");
+const qt=$("#qType"),qe=$("#qExtras"),qr=$("#qRush"),qT=$("#qTier");
+qt.innerHTML=CFG.types.map((t,i)=>`<label class="opt"><input type="radio" name="qt" value="${i}" ${i===0?"checked":""}><span class="block font-semibold text-sm leading-tight">${t.n}</span><s class="block text-lilac/60 text-xs mt-2">${brl(was(t.tiers[0].p))}</s><span class="block font-display font-bold text-volt"><small class="font-body text-[10px] font-semibold text-lilac/70">a partir de </small>${brl(t.tiers[0].p)}</span></label>`).join("");
 qe.innerHTML=CFG.extras.map((x,i)=>`<label class="flex items-center gap-3 text-sm cursor-pointer"><input type="checkbox" value="${i}"><span class="flex-1">${x.n}</span><span class="text-right leading-tight"><s class="block text-lilac/50 text-xs">${brl(was(x.p))}</s><span class="text-lilac/90">+${brl(x.p)}</span></span></label>`).join("");
-function calc(){
- const t=CFG.types[qt.querySelector(":checked").value],ex=[...qe.querySelectorAll(":checked")].map(c=>CFG.extras[c.value]),r=+$("#qRush").value;
- const base=t.p+ex.reduce((s,x)=>s+x.p,0),old=was(t.p)+ex.reduce((s,x)=>s+was(x.p),0);
- const total=Math.round(base*r),oldT=Math.round(old*r);
- $("#qPrice").textContent=brl(total);$("#qOld").textContent=brl(oldT);$("#qSave").textContent="Você economiza "+brl(oldT-total);
- $("#qInc").innerHTML=[...t.inc,...ex.map(x=>x.n)].map(i=>`<li class="flex gap-2"><span class="text-volt font-bold">✓</span><span>${i}</span></li>`).join("")+(r>1?'<li class="flex gap-2"><span class="text-volt font-bold">✓</span><span>Entrega expressa em 3 dias</span></li>':"");
- $("#qSend").href=wa(`Olá! Montei um orçamento no seu site (Black November):\n• Projeto: ${t.n}\n• Extras: ${ex.length?ex.map(x=>x.n).join(", "):"nenhum"}\n• Prazo: ${r>1?"expresso (3 dias)":"normal (7 dias)"}\n• De ${brl(oldT)} por ${brl(total)}\nQuero garantir esse valor!`);
+let tier=0;
+const dias=n=>n+(n===1?" dia":" dias");
+const cum=(t,k)=>t.tiers.slice(0,k+1).flatMap((x,i)=>x.inc.map(v=>({v,up:i>0})));
+function drawTiers(){
+ const t=CFG.types[qt.querySelector(":checked").value];
+ qT.innerHTML=t.tiers.map((x,i)=>`<label class="opt tier">${i===1?'<span class="absolute -top-3 left-4 bg-volt text-ink text-[10px] font-extrabold rounded-full px-2.5 py-0.5">MAIS ESCOLHIDO</span>':""}<input type="radio" name="qk" value="${i}" ${i===tier?"checked":""}>
+  <span class="block font-display font-bold">${x.n}</span><s class="block text-lilac/60 text-xs mt-2">${brl(was(x.p))}</s><span class="block font-display font-extrabold text-2xl text-volt">${brl(x.p)}</span>
+  <span class="block text-xs text-lilac/80 mt-3">${i===0?"O essencial para ir ao ar com qualidade":`Tudo do ${t.tiers[i-1].n}, mais:`}</span>
+  <ul class="mt-2 space-y-1.5 text-xs text-lilac/95">${x.inc.slice(0,i===0?4:5).map(v=>`<li class="flex gap-2"><span class="text-volt font-bold">${i?"★":"✓"}</span><span>${v}</span></li>`).join("")}${x.inc.length>(i?5:4)?`<li class="text-lilac/60">e mais ${x.inc.length-(i?5:4)} item(ns)</li>`:""}</ul></label>`).join("");
 }
-[qt,qe,$("#qRush")].forEach(e=>e.addEventListener("change",calc));calc();
+function drawRush(){
+ const t=CFG.types[qt.querySelector(":checked").value],cur=qr.value||"1";
+ qr.innerHTML=`<option value="1">Normal (${dias(t.dias[0])})</option><option value="1.3">Expresso (${dias(t.dias[1])}, +30%)</option>`;qr.value=cur;
+}
+function calc(){
+ const t=CFG.types[qt.querySelector(":checked").value],k=t.tiers[tier],ex=[...qe.querySelectorAll(":checked")].map(c=>CFG.extras[c.value]),r=+qr.value;
+ const base=k.p+ex.reduce((s,x)=>s+x.p,0),old=was(k.p)+ex.reduce((s,x)=>s+was(x.p),0);
+ const total=Math.round(base*r),oldT=Math.round(old*r),d=t.dias[r>1?1:0];
+ $("#qPrice").textContent=brl(total);$("#qOld").textContent=brl(oldT);$("#qSave").textContent="Você economiza "+brl(oldT-total)+" · Pacote "+k.n+" · entrega em "+dias(d);
+ $("#qInc").innerHTML=cum(t,tier).map(i=>`<li class="flex gap-2"><span class="text-volt font-bold">${i.up?"★":"✓"}</span><span>${i.v}</span></li>`).join("")+ex.map(x=>`<li class="flex gap-2"><span class="text-volt font-bold">+</span><span>${x.n}</span></li>`).join("")+(r>1?`<li class="flex gap-2"><span class="text-volt font-bold">⚡</span><span>Entrega expressa em ${dias(d)}</span></li>`:"");
+ const link=wa(`Olá! Montei um orçamento no seu site (Black November):\n• Projeto: ${t.n} (pacote ${k.n})\n• Extras: ${ex.length?ex.map(x=>x.n).join(", "):"nenhum"}\n• Prazo: ${r>1?"expresso":"normal"} (${dias(d)})\n• De ${brl(oldT)} por ${brl(total)}\nQuero garantir esse valor!`);
+ $("#qSend").href=link;$("#qSend2").href=link;
+}
+qt.addEventListener("change",()=>{drawTiers();drawRush();calc()});
+qT.addEventListener("change",e=>{tier=+e.target.value;drawTiers();calc()});
+qe.addEventListener("change",calc);qr.addEventListener("change",calc);
+drawTiers();drawRush();calc();
 
 // faixa Black November
 (()=>{
  const bf=$("#bf"),end=new Date(new Date().getFullYear(),10,30,23,59,59);
  if(Date.now()>end){bf.remove();return}
- const lp=CFG.types[0];
+ const lp=CFG.types[0].tiers[0];
  const left=()=>{const d=end-Date.now(),D=Math.floor(d/864e5),H=Math.floor(d%864e5/36e5),M=Math.floor(d%36e5/6e4);return `Termina em ${D}d ${String(H).padStart(2,"0")}h ${String(M).padStart(2,"0")}min`};
- const items=()=>["BLACK NOVEMBER","65% OFF em todos os sites",`Landing page de ${brl(was(lp.p))} por ${brl(lp.p)}`,"Extras também com 65% OFF","Entrega em 7 dias ou 3 no expresso","Poucas vagas neste mês",left()];
+ const items=()=>["BLACK NOVEMBER","65% OFF em todos os sites",`Landing page de ${brl(was(lp.p))} por ${brl(lp.p)}`,"Extras também com 65% OFF","Entrega a partir de 3 dias no expresso","Poucas vagas neste mês",left()];
  const draw=()=>{const h=items().map((t,i)=>`<span class="${i===0?"bf-hot":""}">${t}</span>`).join('<i>✦</i>');$("#bfTrack").innerHTML=`<span class="bf-grp">${h}<i>✦</i></span><span class="bf-grp" aria-hidden="true">${h}<i>✦</i></span>`};
  draw();setInterval(draw,60000);
 })();

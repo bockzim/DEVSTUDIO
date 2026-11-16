@@ -8,11 +8,24 @@ const CFG={
 
   off:0.65, // desconto Black November (valores abaixo são os já com desconto; o "de" é calculado)
   promoFim:"30/11", // texto do fim da promoção (a contagem usa 30 de novembro)
+  /* dias:[normal, expresso]. tiers: preço já com desconto; inc do 2º e 3º pacote = itens ADICIONAIS ao pacote anterior */
   types:[
-    {n:"Landing page",p:400,inc:["Design sob medida, sem template","100% responsivo (celular em 1º lugar)","Botão de WhatsApp e formulário","SEO básico e carregamento rápido","Domínio e hospedagem configurados","30 dias de suporte"]},
-    {n:"Site institucional",p:900,inc:["Até 6 páginas com design exclusivo","100% responsivo e rápido","WhatsApp, mapa e formulário","SEO técnico para aparecer no Google","Domínio e hospedagem configurados","30 dias de suporte"]},
-    {n:"Loja virtual",p:1700,inc:["Catálogo com busca e categorias","Carrinho e checkout (Pix e cartão)","Painel para gerenciar produtos","Design exclusivo e responsivo","SEO técnico e alta velocidade","30 dias de suporte"]},
-    {n:"Sistema / painel",p:4000,inc:["Área de login com níveis de acesso","Painel com dados e relatórios","Automações sob medida","Design exclusivo e responsivo","Código 100% seu, sem amarras","30 dias de suporte"]}
+    {n:"Landing page",dias:[7,3],tiers:[
+      {n:"Essencial",p:400,inc:["Design sob medida, sem template","Layout 100% responsivo, pensado primeiro para o celular","Até 5 seções de conversão (oferta, benefícios, prova, perguntas e contato)","Botão flutuante de WhatsApp e formulário de contato","SEO básico e carregamento rápido","Certificado SSL (cadeado de segurança)","Domínio e hospedagem configurados","Código limpo e 100% seu","30 dias de suporte"]},
+      {n:"Profissional",p:650,inc:["Até 8 seções com estrutura de alta conversão","Textos revisados para vender mais","Meta Pixel e Google Analytics instalados","Página de obrigado com rastreamento de conversão","E-mail profissional configurado (@seudominio)","2 rodadas extras de ajustes","Suporte estendido para 60 dias"]},
+      {n:"Premium",p:950,inc:["Copywriting completo da página","Identidade visual aplicada (paleta, tipografia e ícones)","Mapa de calor para ver onde seus visitantes clicam","Relatório de velocidade e performance","1h de consultoria para tráfego pago","Prioridade na fila de entrega","Suporte estendido para 90 dias"]}]},
+    {n:"Site institucional",dias:[7,3],tiers:[
+      {n:"Essencial",p:900,inc:["Até 6 páginas com design exclusivo","Responsivo, com prioridade no celular","Menu e navegação pensados para conversão","WhatsApp, mapa e formulário de contato","SEO on-page básico em todas as páginas","Carregamento em menos de 2 segundos","Certificado SSL, domínio e hospedagem configurados","Código limpo e 100% seu","30 dias de suporte"]},
+      {n:"Profissional",p:1400,inc:["Até 10 páginas","Galeria de fotos ou portfólio","Textos revisados para o Google","Orientação para o Google Meu Negócio","Meta Pixel e Google Analytics instalados","E-mail profissional configurado","Suporte estendido para 60 dias"]},
+      {n:"Premium",p:2000,inc:["Até 15 páginas dentro do escopo combinado","Copywriting completo do site","Identidade visual aplicada (paleta, tipografia e ícones)","Mapa de calor para ver o comportamento dos visitantes","Relatório de performance por 3 meses","Prioridade na fila de entrega","Suporte estendido para 90 dias"]}]},
+    {n:"Loja virtual",dias:[11,4],tiers:[
+      {n:"Essencial",p:1700,inc:["Catálogo com busca, filtros e categorias","Até 50 produtos cadastrados por mim","Carrinho e checkout com Pix e cartão","Painel para gerenciar produtos e pedidos","Cálculo de frete","Design exclusivo e responsivo","SEO e velocidade pensados para loja","Certificado SSL, domínio e hospedagem configurados","30 dias de suporte"]},
+      {n:"Profissional",p:2500,inc:["Até 150 produtos cadastrados","Cupons de desconto e promoções","Recuperação de carrinho abandonado","Meta Pixel e Google Analytics instalados","E-mails automáticos de pedido","Treinamento em vídeo para usar a loja","Suporte estendido para 60 dias"]},
+      {n:"Premium",p:3600,inc:["Até 500 produtos cadastrados","Avaliações de clientes nos produtos","Feed de produtos para o Google Shopping","Identidade visual aplicada à loja","Mapa de calor para ver o comportamento de compra","Prioridade na fila de entrega","Suporte estendido para 90 dias"]}]},
+    {n:"Sistema / painel",dias:[13,5],tiers:[
+      {n:"Essencial",p:4000,inc:["Levantamento de requisitos em conversa","Protótipo das telas para sua aprovação","Área de login com níveis de acesso","Painel com cadastros, listas e busca","Banco de dados seguro","Design exclusivo e responsivo","Certificado SSL, domínio e hospedagem configurados","Código 100% seu, sem amarras","30 dias de suporte"]},
+      {n:"Profissional",p:5800,inc:["Relatórios e gráficos","Exportação para Excel e PDF","Notificações por e-mail","Registro de atividades (quem fez o quê)","Treinamento da sua equipe","Suporte estendido para 60 dias"]},
+      {n:"Premium",p:8000,inc:["Integrações com APIs (pagamento, WhatsApp e outras)","Automações sob medida","Backups automáticos diários","Documentação técnica","Prioridade na fila de entrega","Suporte estendido para 90 dias"]}]}
   ],
   extras:[{n:"Blog com painel de edição",p:300},{n:"Integração com WhatsApp e CRM",p:600},{n:"Animações avançadas",p:300},{n:"SEO técnico completo",p:100},{n:"Multi-idioma",p:200}],
 

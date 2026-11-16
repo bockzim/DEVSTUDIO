@@ -33,7 +33,6 @@ Se o arquivo existir, ele substitui a réplica automaticamente. Se não existir,
 ## Pendências
 - Trocar o `instagram` em `js/config.js` pelo @ real.
 - Hospedar os sites demo (`forma-personal`, `aurora-estetica`, `oliva-spa`) e colocar cada link em `js/config.js`.
-- Substituir os depoimentos fictícios e conferir o número de nota 98 do Lighthouse.
 
 ## Performance
 O Tailwind vem pelo CDN. Para o máximo no celular, gere o CSS: `npx tailwindcss -o css/tailwind.css --minify` e troque o `<script>` do CDN por um `<link>`.
