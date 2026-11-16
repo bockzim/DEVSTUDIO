@@ -146,8 +146,11 @@
     </div>
     <div class="relative mt-12">
       <h3 class="font-display font-bold text-xl md:text-2xl">Quer ir além? Escolha seu pacote</h3>
-      <p class="text-lilac/90 text-sm mt-2">Mesmo tipo de projeto, com mais entregas em cada nível. Toque para ver tudo que muda.</p>
-      <div id="qTier" class="grid md:grid-cols-3 gap-4 mt-6"></div>
+      <p class="text-lilac/90 text-sm mt-2">Mesmo tipo de projeto, com mais entregas em cada nível. Deslize para comparar.</p>
+      <div class="car-wrap mt-6">
+        <div id="qTier" class="car" role="radiogroup" aria-label="Pacotes" tabindex="-1"></div>
+        <div class="car-nav md:hidden"><button type="button" id="cPrev" aria-label="Pacote anterior">‹</button><div id="cDots" class="flex gap-2"></div><button type="button" id="cNext" aria-label="Próximo pacote">›</button></div>
+      </div>
       <a id="qSend2" href="#" target="_blank" rel="noopener" class="btn-volt rounded-full px-6 py-4 text-center mt-8 block sm:inline-block">Garantir meu pacote no WhatsApp</a>
     </div>
   </div>

@@ -74,11 +74,25 @@ const dias=n=>n+(n===1?" dia":" dias");
 const cum=(t,k)=>t.tiers.slice(0,k+1).flatMap((x,i)=>x.inc.map(v=>({v,up:i>0})));
 function drawTiers(){
  const t=CFG.types[qt.querySelector(":checked").value];
- qT.innerHTML=t.tiers.map((x,i)=>`<label class="opt tier">${i===1?'<span class="absolute -top-3 left-4 bg-volt text-ink text-[10px] font-extrabold rounded-full px-2.5 py-0.5">MAIS ESCOLHIDO</span>':""}<input type="radio" name="qk" value="${i}" ${i===tier?"checked":""}>
-  <span class="block font-display font-bold">${x.n}</span><s class="block text-lilac/60 text-xs mt-2">${brl(was(x.p))}</s><span class="block font-display font-extrabold text-2xl text-volt">${brl(x.p)}</span>
+ qT.innerHTML=t.tiers.map((x,i)=>`<label class="opt tier">${i===1?'<span class="tier-hot">MAIS ESCOLHIDO</span>':""}<input type="radio" name="qk" value="${i}" ${i===tier?"checked":""}>
+  <span class="block font-display font-bold text-lg">${x.n}</span><s class="block text-lilac/60 text-xs mt-3">${brl(was(x.p))}</s><span class="block font-display font-extrabold text-3xl text-volt">${brl(x.p)}</span>
   <span class="block text-xs text-lilac/80 mt-3">${i===0?"O essencial para ir ao ar com qualidade":`Tudo do ${t.tiers[i-1].n}, mais:`}</span>
-  <ul class="mt-2 space-y-1.5 text-xs text-lilac/95">${x.inc.slice(0,i===0?4:5).map(v=>`<li class="flex gap-2"><span class="text-volt font-bold">${i?"★":"✓"}</span><span>${v}</span></li>`).join("")}${x.inc.length>(i?5:4)?`<li class="text-lilac/60">e mais ${x.inc.length-(i?5:4)} item(ns)</li>`:""}</ul></label>`).join("");
+  <ul class="mt-3 space-y-2 text-[13px] leading-snug text-lilac/95 flex-1">${x.inc.map(v=>`<li class="flex gap-2"><span class="text-volt font-bold">${i?"★":"✓"}</span><span>${v}</span></li>`).join("")}</ul>
+  <span class="tier-btn">${i===tier?"Selecionado ✓":"Escolher "+x.n}</span></label>`).join("");
+ $("#cDots").innerHTML=t.tiers.map((x,i)=>`<button type="button" data-i="${i}" aria-label="Ver ${x.n}" class="dot"></button>`).join("");
+ goTier(tier,false);
 }
+function goTier(i,smooth=true){
+ const c=qT.children[i];if(!c)return;
+ if(qT.scrollWidth>qT.clientWidth+4)qT.scrollTo({left:c.offsetLeft-(qT.clientWidth-c.offsetWidth)/2,behavior:smooth&&!matchMedia("(prefers-reduced-motion:reduce)").matches?"smooth":"auto"});
+ markDot();
+}
+function curIdx(){const mid=qT.scrollLeft+qT.clientWidth/2;let b=0,d=1e9;[...qT.children].forEach((c,i)=>{const k=Math.abs(c.offsetLeft+c.offsetWidth/2-mid);if(k<d){d=k;b=i}});return b}
+function markDot(){const i=curIdx();document.querySelectorAll("#cDots .dot").forEach((d,k)=>d.setAttribute("aria-current",k===i))}
+qT.addEventListener("scroll",()=>requestAnimationFrame(markDot),{passive:true});
+$("#cDots").addEventListener("click",e=>{const b=e.target.closest(".dot");if(b)goTier(+b.dataset.i)});
+$("#cPrev").onclick=()=>goTier(Math.max(0,curIdx()-1));
+$("#cNext").onclick=()=>goTier(Math.min(qT.children.length-1,curIdx()+1));
 function drawRush(){
  const t=CFG.types[qt.querySelector(":checked").value],cur=qr.value||"1";
  qr.innerHTML=`<option value="1">Normal (${dias(t.dias[0])})</option><option value="1.3">Expresso (${dias(t.dias[1])}, +30%)</option>`;qr.value=cur;
@@ -93,7 +107,7 @@ function calc(){
  $("#qSend").href=link;$("#qSend2").href=link;
 }
 qt.addEventListener("change",()=>{drawTiers();drawRush();calc()});
-qT.addEventListener("change",e=>{tier=+e.target.value;drawTiers();calc()});
+qT.addEventListener("change",e=>{tier=+e.target.value;const sl=qT.scrollLeft;drawTiers();qT.scrollLeft=sl;calc()});
 qe.addEventListener("change",calc);qr.addEventListener("change",calc);
 drawTiers();drawRush();calc();
 
