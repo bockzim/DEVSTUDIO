@@ -104,7 +104,7 @@ function calc(){
  $("#qPrice").textContent=brl(total);$("#qOld").textContent=brl(oldT);$("#qSave").textContent="Você economiza "+brl(oldT-total)+" · Pacote "+k.n+" · entrega em "+dias(d);
  $("#qInc").innerHTML=cum(t,tier).map(i=>`<li class="flex gap-2"><span class="text-volt font-bold">${i.up?"★":"✓"}</span><span>${i.v}</span></li>`).join("")+ex.map(x=>`<li class="flex gap-2"><span class="text-volt font-bold">+</span><span>${x.n}</span></li>`).join("")+(r>1?`<li class="flex gap-2"><span class="text-volt font-bold">⚡</span><span>Entrega expressa em ${dias(d)}</span></li>`:"");
  const link=wa(`Olá! Montei um orçamento no seu site (Black November):\n• Projeto: ${t.n} (pacote ${k.n})\n• Extras: ${ex.length?ex.map(x=>x.n).join(", "):"nenhum"}\n• Prazo: ${r>1?"expresso":"normal"} (${dias(d)})\n• De ${brl(oldT)} por ${brl(total)}\nQuero garantir esse valor!`);
- $("#qSend").href=link;$("#qSend2").href=link;
+ $("#qSend").href=link;
 }
 qt.addEventListener("change",()=>{drawTiers();drawRush();calc()});
 qT.addEventListener("change",e=>{tier=+e.target.value;const sl=qT.scrollLeft;drawTiers();qT.scrollLeft=sl;calc()});

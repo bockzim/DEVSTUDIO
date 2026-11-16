@@ -139,19 +139,15 @@
         <p class="mt-2 flex items-center gap-2 flex-wrap"><s class="text-lilac/60 text-lg" id="qOld"></s><span class="bg-volt text-ink text-[11px] font-extrabold rounded-full px-2 py-0.5">-65%</span></p>
         <p class="font-display text-4xl lg:text-5xl font-extrabold text-volt" id="qPrice">R$ 0</p>
         <p class="text-sm font-semibold mt-1" id="qSave"></p>
-        <div class="mt-6 border-t border-line pt-5"><p class="text-sm font-bold mb-3">Você recebe:</p><ul id="qInc" class="space-y-2 text-sm text-lilac/95"></ul></div>
+        <div class="mt-6 border-t border-line pt-5"><p class="font-display font-bold text-lg">Que tal um upgrade? <span aria-hidden="true">🚀</span></p><p class="text-xs text-lilac/80 mt-1">Por pouco mais, você leva bem mais entregas. Deslize para comparar os pacotes.</p>
+        <div class="car-wrap mt-6">
+        <div id="qTier" class="car" role="radiogroup" aria-label="Pacotes" tabindex="-1"></div>
+        <div class="car-nav"><button type="button" id="cPrev" aria-label="Pacote anterior">‹</button><div id="cDots" class="flex gap-2"></div><button type="button" id="cNext" aria-label="Próximo pacote">›</button></div>
+      </div></div>
+        <div class="mt-8 border-t border-line pt-5"><p class="text-sm font-bold mb-3">Você recebe:</p><ul id="qInc" class="space-y-2 text-sm text-lilac/95"></ul></div>
         <p class="text-xs text-lilac/70 mt-5">Valor de referência. O orçamento final é fechado após conversa rápida sobre o escopo.</p></div>
         <a id="qSend" href="#" target="_blank" rel="noopener" class="btn-volt rounded-full px-6 py-4 text-center mt-8">Garantir com desconto no WhatsApp</a>
       </div>
-    </div>
-    <div class="relative mt-12">
-      <h3 class="font-display font-bold text-xl md:text-2xl">Quer ir além? Escolha seu pacote</h3>
-      <p class="text-lilac/90 text-sm mt-2">Mesmo tipo de projeto, com mais entregas em cada nível. Deslize para comparar.</p>
-      <div class="car-wrap mt-6">
-        <div id="qTier" class="car" role="radiogroup" aria-label="Pacotes" tabindex="-1"></div>
-        <div class="car-nav md:hidden"><button type="button" id="cPrev" aria-label="Pacote anterior">‹</button><div id="cDots" class="flex gap-2"></div><button type="button" id="cNext" aria-label="Próximo pacote">›</button></div>
-      </div>
-      <a id="qSend2" href="#" target="_blank" rel="noopener" class="btn-volt rounded-full px-6 py-4 text-center mt-8 block sm:inline-block">Garantir meu pacote no WhatsApp</a>
     </div>
   </div>
 </section>
