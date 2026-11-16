@@ -14,8 +14,6 @@ Para publicar: envie a pasta inteira para Netlify, Vercel, GitHub Pages ou qualq
 | `js/main.js` | Comportamento: menu mobile, hero ao vivo, contadores, filtro de projetos, calculadora, formulário |
 | `assets/favicon.svg` | Ícone da aba |
 | `assets/previews/` | Prévias dos sites (veja abaixo) |
-| `demos/forma-personal/` | Site demo completo do personal trainer (HTML, CSS e JS próprios) |
-| `demos/odonto-sorriso/` | Site demo completo da clínica (agendamento, simulador de parcelas, aberto agora) |
 | `robots.txt` | Liberação para buscadores |
 
 ## Como editar
@@ -28,15 +26,27 @@ Cada card mostra uma réplica da tela inicial do site. Para usar um print real:
 1. Tire um print da primeira dobra do site (1280x800 funciona bem).
 2. Salve como `assets/previews/<slug>.webp`.
 
-Já incluídos: `chanandry-arquitetura`, `chanandry-imobiliaria` e `campero`. As demos sem print usam a réplica.
-Slugs de todos: `chanandry-arquitetura`, `chanandry-imobiliaria`, `campero`, `barbearia-navalha`, `odonto-sorriso`, `forma-personal`.
+Já incluídos: `chanandry-arquitetura`, `chanandry-imobiliaria` e `campero`. Também já incluídos: `aurora-estetica` e `forma-personal`. O `oliva-spa` usa a réplica da tela inicial (pode receber um print em `assets/previews/oliva-spa.webp`).
+Slugs de todos: `chanandry-arquitetura`, `chanandry-imobiliaria`, `campero`, `aurora-estetica`, `forma-personal`, `oliva-spa`.
 Se o arquivo existir, ele substitui a réplica automaticamente. Se não existir, a réplica continua aparecendo.
 
 ## Pendências
 - Trocar o `instagram` em `js/config.js` pelo @ real.
-- Demo sem site ainda: `barbearia-navalha`. `forma-personal` e `odonto-sorriso` já estão em `demos/`.
-- Trocar o número do WhatsApp das demos (`WHATS` em `demos/forma-personal/app.js` e `CFG.whatsapp` em `demos/odonto-sorriso/js/main.js`) se não quiser receber os contatos.
+- Hospedar os sites demo (`forma-personal`, `aurora-estetica`, `oliva-spa`) e colocar cada link em `js/config.js`.
 - Substituir os depoimentos fictícios e conferir o número de nota 98 do Lighthouse.
 
 ## Performance
 O Tailwind vem pelo CDN. Para o máximo no celular, gere o CSS: `npx tailwindcss -o css/tailwind.css --minify` e troque o `<script>` do CDN por um `<link>`.
+
+## Estrutura do projeto completo
+```
+index.html, css/, js/, assets/     portfólio principal (DevStudio)
+demos/oliva-spa/                   demo: spa (arquivo único, Tailwind via CDN)
+demos/forma-personal/              demo: personal trainer (cronômetro interativo)
+demos/aurora-estetica/             demo: clínica de estética (orb WebGL + quiz)
+```
+Os cards do portfólio já abrem as demos por link relativo (`demos/<nome>/`), então basta publicar a pasta inteira (por exemplo no GitHub Pages). Cada demo tem o próprio README e pode ser publicada separada.
+Os dois sites de cliente (Chanandry) abrem os endereços reais.
+
+## Links das demos
+Os links dos cards apontam para `.../index.html` (e não só para a pasta). Assim abrem direto, inclusive quando o projeto é aberto pelo computador sem servidor.

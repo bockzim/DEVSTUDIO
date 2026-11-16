@@ -21,14 +21,14 @@ const CFG={
     {slug:"campero",t:"Refrigeração Campero",k:"demo",host:"bockzim.github.io/campero-refrigera-ao",url:"https://bockzim.github.io/campero-refrigera-ao/",
      d:"Demo para prestador de serviço, com tabela de preços interativa e pedido direto no WhatsApp.",tags:["Orçamento","WhatsApp","Mobile first"],a:"#38BDF8",b:"#030A1C",
      hero:{bg:"linear-gradient(160deg,#030a1c,#0b2347)",fg:"#EAF6FF",ac:"#38BDF8",on:"#030a1c",tag:"Ar-condicionado",title:"Seu ar gelando como novo.",sub:"Limpeza, instalação, manutenção, conserto e gás.",cta:"Pedir orçamento",chips:["Limpeza R$ 180","Instalação R$ 200"]}},
-    {slug:"barbearia-navalha",t:"Barbearia Navalha",k:"demo",host:"barbearianavalha.com.br",url:"",
-     d:"Demo de site com serviços, tabela de preços e agendamento pelo WhatsApp.",tags:["Agendamento","Landing"],a:"#8B3DFF",b:"#07040D",
-     hero:{bg:"linear-gradient(160deg,#141016,#2b1d3d)",fg:"#F4EEFA",ac:"#E8B04B",on:"#141016",tag:"Barbearia",title:"Corte que vale o horário.",sub:"Cabelo, barba e sobrancelha. Agende em segundos.",cta:"Agendar agora",chips:["Corte","Barba"]}},
-    {slug:"odonto-sorriso",t:"Odonto Sorriso",k:"demo",host:"bockzim.github.io/DEVSTUDIO/demos/odonto-sorriso",url:"demos/odonto-sorriso/",
-     d:"Site de clínica com agendamento por dia e horário, simulador de parcelas, aberto agora e WhatsApp.",tags:["Agendamento","Simulador","WhatsApp"],a:"#2DD4BF",b:"#0B2A33",
-     hero:{bg:"linear-gradient(160deg,#0b2a33,#0f4350)",fg:"#EAFBF8",ac:"#2DD4BF",on:"#0b2a33",tag:"Odontologia",title:"Seu sorriso em boas mãos.",sub:"Limpeza, clareamento e ortodontia perto de você.",cta:"Marcar avaliação",chips:["Clareamento","Ortodontia"]}},
-    {slug:"forma-personal",t:"Forma Personal",k:"demo",host:"bockzim.github.io/DEVSTUDIO/demos/forma-personal",url:"demos/forma-personal/",
-     d:"Demo de landing para personal trainer, com quiz que indica o plano ideal, planos mensal e trimestral e contato por WhatsApp.",tags:["Quiz","Planos","WhatsApp"],a:"#D4FF3A",b:"#3B1A7A",
-     hero:{bg:"linear-gradient(160deg,#2a1158,#4a1fa0)",fg:"#FFFFFF",ac:"#D4FF3A",on:"#1a0a3a",tag:"Personal trainer",title:"Treino que cabe na sua rotina.",sub:"Planos online e presenciais com acompanhamento.",cta:"Quero começar",chips:["Plano online","Presencial"]}}
+    {slug:"aurora-estetica",t:"Aurora Estética",k:"demo",host:"auroraestetica.com.br",url:"demos/aurora-estetica/index.html",
+     d:"Demo de clínica de estética com orb interativo em WebGL, quiz de protocolo personalizado e jornada com rolagem horizontal.",tags:["WebGL","Quiz","Mobile first"],a:"#E8B7B0",b:"#FDF8F4",
+     hero:{bg:"linear-gradient(160deg,#FDF8F4,#F6E6E1)",fg:"#4A3235",ac:"#C98F8A",on:"#FFFFFF",serif:true,tag:"Clínica de estética",title:"Luz que nasce da pele.",sub:"Protocolos faciais e corporais sob medida.",cta:"Avaliação gratuita",chips:["Facial","Corporal"]}},
+    {slug:"forma-personal",t:"Forma Personal",k:"demo",host:"formapersonal.com.br",url:"demos/forma-personal/index.html",
+     d:"Demo para personal trainer, com desafio interativo de 2 minutos, configurador de plano e jornada de 12 semanas.",tags:["Timer interativo","Configurador","Conversão"],a:"#19D97B",b:"#070807",
+     hero:{bg:"linear-gradient(160deg,#070807,#0A2E1E)",fg:"#EAF3EE",ac:"#FF5A1F",on:"#160600",tag:"Personal trainer",title:"Treino que cabe na sua rotina.",sub:"Desafio de 2 minutos, planos online e presenciais.",cta:"Fazer o desafio",chips:["Online","Presencial"]}},
+    {slug:"oliva-spa",t:"Oliva Spa",k:"demo",host:"bockzim.github.io/DEVSTUDIO/demos/oliva-spa",url:"demos/oliva-spa/index.html",
+     d:"Demo de spa com luz que muda conforme o horário, cardápio de rituais e convite pessoal para postar e reservar pelo WhatsApp.",tags:["Interativo","Convite","WhatsApp"],a:"#6B7A3A",b:"#F8F5EE",
+     hero:{bg:"linear-gradient(160deg,#F8F5EE,#E8DEC9)",fg:"#3C4A24",ac:"#6B7A3A",on:"#F8F5EE",serif:true,tag:"Spa urbano",title:"Oliva",sub:"Rituais de bem-estar com luz natural.",cta:"Garantir meu convite",chips:["Rituais","Day use"]}}
   ]
 };
