@@ -26,7 +26,7 @@ Cada card mostra uma réplica da tela inicial do site. Para usar um print real:
 1. Tire um print da primeira dobra do site (1280x800 funciona bem).
 2. Salve como `assets/previews/<slug>.webp`.
 
-Já incluídos: `chanandry-arquitetura`, `chanandry-imobiliaria` e `campero`. Também já incluídos: `aurora-estetica` e `forma-personal`. O `oliva-spa` usa a réplica da tela inicial (pode receber um print em `assets/previews/oliva-spa.webp`).
+Já incluídos: `chanandry-arquitetura`, `chanandry-imobiliaria` e `campero`. Também já incluídos: `aurora-estetica` e `forma-personal`. O `oliva-spa` também já tem print.
 Slugs de todos: `chanandry-arquitetura`, `chanandry-imobiliaria`, `campero`, `aurora-estetica`, `forma-personal`, `oliva-spa`.
 Se o arquivo existir, ele substitui a réplica automaticamente. Se não existir, a réplica continua aparecendo.
 
