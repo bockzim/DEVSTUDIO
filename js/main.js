@@ -64,16 +64,30 @@ drawProjects("all");
 document.querySelectorAll("#filters .chip").forEach(c=>c.onclick=()=>{document.querySelectorAll("#filters .chip").forEach(x=>x.setAttribute("aria-pressed",x===c));drawProjects(c.dataset.f)});
 
 // calculator
+const OFF=CFG.off||.65,was=p=>Math.round(p/(1-OFF)/10)*10;
 const qt=$("#qType"),qe=$("#qExtras");
-qt.innerHTML=CFG.types.map((t,i)=>`<option value="${i}">${t.n}</option>`).join("");
-qe.innerHTML=CFG.extras.map((x,i)=>`<label class="flex items-center gap-3 text-sm cursor-pointer"><input type="checkbox" value="${i}"><span class="flex-1">${x.n}</span><span class="text-lilac/70">+${brl(x.p)}</span></label>`).join("");
+qt.innerHTML=CFG.types.map((t,i)=>`<label class="opt"><input type="radio" name="qt" value="${i}" ${i===0?"checked":""}><span class="block font-semibold text-sm leading-tight">${t.n}</span><s class="block text-lilac/60 text-xs mt-2">${brl(was(t.p))}</s><span class="block font-display font-bold text-volt">${brl(t.p)}</span></label>`).join("");
+qe.innerHTML=CFG.extras.map((x,i)=>`<label class="flex items-center gap-3 text-sm cursor-pointer"><input type="checkbox" value="${i}"><span class="flex-1">${x.n}</span><span class="text-right leading-tight"><s class="block text-lilac/50 text-xs">${brl(was(x.p))}</s><span class="text-lilac/90">+${brl(x.p)}</span></span></label>`).join("");
 function calc(){
- const t=CFG.types[qt.value],ex=[...qe.querySelectorAll(":checked")].map(c=>CFG.extras[c.value]),r=+$("#qRush").value;
- const total=Math.round((t.p+ex.reduce((s,x)=>s+x.p,0))*r);
- $("#qPrice").textContent=brl(total);
- $("#qSend").href=wa(`Olá! Montei um orçamento no seu site:\n• Projeto: ${t.n}\n• Extras: ${ex.length?ex.map(x=>x.n).join(", "):"nenhum"}\n• Prazo: ${r>1?"rápido (7 dias)":"normal (3 semanas)"}\n• Estimativa: ${brl(total)}\nPodemos conversar?`);
+ const t=CFG.types[qt.querySelector(":checked").value],ex=[...qe.querySelectorAll(":checked")].map(c=>CFG.extras[c.value]),r=+$("#qRush").value;
+ const base=t.p+ex.reduce((s,x)=>s+x.p,0),old=was(t.p)+ex.reduce((s,x)=>s+was(x.p),0);
+ const total=Math.round(base*r),oldT=Math.round(old*r);
+ $("#qPrice").textContent=brl(total);$("#qOld").textContent=brl(oldT);$("#qSave").textContent="Você economiza "+brl(oldT-total);
+ $("#qInc").innerHTML=[...t.inc,...ex.map(x=>x.n)].map(i=>`<li class="flex gap-2"><span class="text-volt font-bold">✓</span><span>${i}</span></li>`).join("")+(r>1?'<li class="flex gap-2"><span class="text-volt font-bold">✓</span><span>Entrega expressa em 3 dias</span></li>':"");
+ $("#qSend").href=wa(`Olá! Montei um orçamento no seu site (Black November):\n• Projeto: ${t.n}\n• Extras: ${ex.length?ex.map(x=>x.n).join(", "):"nenhum"}\n• Prazo: ${r>1?"expresso (3 dias)":"normal (7 dias)"}\n• De ${brl(oldT)} por ${brl(total)}\nQuero garantir esse valor!`);
 }
 [qt,qe,$("#qRush")].forEach(e=>e.addEventListener("change",calc));calc();
+
+// faixa Black November
+(()=>{
+ const bf=$("#bf"),end=new Date(new Date().getFullYear(),10,30,23,59,59);
+ if(Date.now()>end){bf.remove();return}
+ const lp=CFG.types[0];
+ const left=()=>{const d=end-Date.now(),D=Math.floor(d/864e5),H=Math.floor(d%864e5/36e5),M=Math.floor(d%36e5/6e4);return `Termina em ${D}d ${String(H).padStart(2,"0")}h ${String(M).padStart(2,"0")}min`};
+ const items=()=>["BLACK NOVEMBER","65% OFF em todos os sites",`Landing page de ${brl(was(lp.p))} por ${brl(lp.p)}`,"Extras também com 65% OFF","Entrega em 7 dias ou 3 no expresso","Poucas vagas neste mês",left()];
+ const draw=()=>{const h=items().map((t,i)=>`<span class="${i===0?"bf-hot":""}">${t}</span>`).join('<i>✦</i>');$("#bfTrack").innerHTML=`<span class="bf-grp">${h}<i>✦</i></span><span class="bf-grp" aria-hidden="true">${h}<i>✦</i></span>`};
+ draw();setInterval(draw,60000);
+})();
 
 // contact form -> WhatsApp
 $("#fSend").onclick=()=>{

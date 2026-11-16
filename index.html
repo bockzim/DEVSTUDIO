@@ -21,6 +21,7 @@
 <div class="glow" id="glow"></div>
 
 <header class="sticky z-50 backdrop-blur-xl bg-ink/70 border-b border-line" style="top:env(safe-area-inset-top,0px)">
+  <div id="bf" class="bf" role="region" aria-label="Promoção Black November"><div class="bf-track" id="bfTrack"></div></div>
   <div class="max-w-7xl mx-auto px-5 h-16 flex items-center justify-between">
     <a href="#top" class="font-display font-bold text-lg tracking-tight">dev<span class="text-volt">studio</span></a>
     <nav class="hidden md:flex gap-8 text-sm font-semibold text-lilac">
@@ -38,37 +39,39 @@
 
 <main id="top" class="relative z-10">
 <!-- HERO -->
-<section class="relative pt-16 pb-24 md:pt-24">
+<section class="relative pt-6 pb-20 md:pt-12">
   <div class="absolute inset-0 grid-bg -z-10"></div>
-  <div class="max-w-7xl mx-auto px-5 grid lg:grid-cols-[1.15fr_.85fr] gap-14 items-center">
-    <div class="hero-in">
+  <div class="max-w-7xl mx-auto px-5 grid lg:grid-cols-[1.15fr_.85fr] lg:grid-rows-[auto_auto] gap-x-14 gap-y-8 lg:items-center">
+    <div class="hero-in lg:self-end">
       <p class="inline-flex items-center gap-2 text-sm text-lilac border border-line rounded-full px-4 py-1.5"><span class="w-2 h-2 rounded-full bg-volt animate-pulse"></span><span id="slots">2 vagas abertas para este mês</span></p>
-      <h1 class="h1 text-[2.5rem] sm:text-6xl xl:text-7xl font-extrabold mt-6">Seu site vende<br>enquanto você <span class="text-volt" id="rot">dorme.</span></h1>
-      <p class="text-lg text-lilac/90 mt-6 max-w-xl leading-relaxed">Desenvolvo sites rápidos, com design sob medida e código limpo, pensados para transformar visitas em contatos reais. Nada de template genérico.</p>
-      <div class="flex flex-col sm:flex-row gap-4 mt-9 [&>a]:text-center">
-        <a href="#orcamento" class="btn-volt rounded-full px-7 py-4">Calcular meu orçamento</a>
-        <a href="#trabalhos" class="rounded-full px-7 py-4 border border-line font-semibold hover:border-violet transition">Ver trabalhos</a>
-      </div>
+      <h1 class="h1 text-[2.5rem] sm:text-6xl xl:text-7xl font-extrabold mt-5">Seu site vende<br>enquanto você <span class="text-volt" id="rot">dorme.</span></h1>
     </div>
-    <!-- live mock -->
-    <div class="relative hero-in">
+    <!-- leads gerados -->
+    <div class="relative hero-in lg:col-start-2 lg:row-span-2 lg:row-start-1">
       <div class="absolute -inset-6 bg-violet/30 blur-3xl rounded-full"></div>
       <div class="card relative overflow-hidden shadow-2xl shadow-violet/20">
         <div class="flex items-center gap-2 px-4 py-3 border-b border-line">
           <i class="w-3 h-3 rounded-full bg-[#ff5f57]"></i><i class="w-3 h-3 rounded-full bg-[#febc2e]"></i><i class="w-3 h-3 rounded-full bg-[#28c840]"></i>
           <span class="ml-3 text-xs text-lilac/70 bg-ink rounded-md px-3 py-1 flex-1 truncate">seucliente.com.br</span>
         </div>
-        <div class="p-6 space-y-5">
+        <div class="p-5 sm:p-6 space-y-4">
           <div class="flex justify-between items-end">
             <div><p class="text-xs text-lilac/70">Leads gerados hoje</p><p class="font-display text-5xl font-bold text-volt" id="leads">0</p></div>
             <div class="text-right"><p class="text-xs text-lilac/70">Conversão</p><p class="font-display text-2xl font-bold" id="conv">0%</p></div>
           </div>
-          <div class="flex items-end gap-2 h-28" id="bars"></div>
+          <div class="flex items-end gap-2 h-24 sm:h-28" id="bars"></div>
           <div class="flex items-center gap-3 bg-ink rounded-xl p-3 border border-line">
             <div class="w-9 h-9 rounded-full bg-violet grid place-items-center font-bold">M</div>
             <p class="text-sm"><b>Marina</b> pediu um orçamento<br><span class="text-lilac/70 text-xs" id="ago">agora mesmo</span></p>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="hero-in lg:self-start">
+      <p class="text-lg sm:text-xl text-lilac/90 max-w-xl leading-snug"><b class="text-white">Mais clientes chamando no seu WhatsApp.</b> Site sob medida, sem template, no ar em até 7 dias.</p>
+      <div class="flex flex-col sm:flex-row gap-4 mt-7 [&>a]:text-center">
+        <a href="#orcamento" class="btn-volt rounded-full px-7 py-4">Calcular meu orçamento</a>
+        <a href="#trabalhos" class="rounded-full px-7 py-4 border border-line font-semibold hover:border-violet transition">Ver trabalhos</a>
       </div>
     </div>
   </div>
@@ -85,7 +88,7 @@
 <section class="max-w-7xl mx-auto px-5 py-20 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
   <div><p class="font-display text-4xl md:text-5xl font-bold text-volt"><span data-count="100">0</span>+</p><p class="text-lilac/80 mt-2 text-sm">sites entregues</p></div>
   <div><p class="font-display text-4xl md:text-5xl font-bold"><span data-count="98">0</span></p><p class="text-lilac/80 mt-2 text-sm">nota média no Lighthouse</p></div>
-  <div><p class="font-display text-4xl md:text-5xl font-bold text-volt"><span data-count="7">0</span> dias</p><p class="text-lilac/80 mt-2 text-sm">se você pedir entrega rápida</p></div>
+  <div><p class="font-display text-4xl md:text-5xl font-bold text-volt"><span data-count="3">0</span> dias</p><p class="text-lilac/80 mt-2 text-sm">no modo expresso</p></div>
   <div><p class="font-display text-4xl md:text-5xl font-bold"><span data-count="100">0</span>%</p><p class="text-lilac/80 mt-2 text-sm">código seu, sem amarras</p></div>
 </section>
 
@@ -121,20 +124,24 @@
 <section id="orcamento" class="max-w-5xl mx-auto px-5 py-20">
   <div class="card p-6 md:p-12 relative overflow-hidden">
     <div class="absolute -right-24 -top-24 w-72 h-72 bg-volt/10 blur-3xl rounded-full"></div>
+    <p class="relative inline-block bg-volt text-ink text-xs font-extrabold rounded-full px-3 py-1 mb-4">BLACK NOVEMBER · 65% OFF</p>
     <h2 class="h1 text-3xl md:text-4xl font-bold">Monte seu orçamento agora</h2>
-    <p class="text-lilac/90 mt-3">Escolha o que precisa e veja uma estimativa na hora. Sem compromisso.</p>
+    <p class="text-lilac/90 mt-3">Escolha o que precisa e veja o valor na hora, já com desconto. Sem compromisso.</p>
     <div class="grid md:grid-cols-2 gap-10 mt-10 relative">
       <div class="space-y-6">
-        <label class="block"><span class="font-semibold text-sm">Tipo de projeto</span><select id="qType" class="mt-2"></select></label>
+        <fieldset><legend class="font-semibold text-sm mb-3">Tipo de projeto</legend><div id="qType" class="grid grid-cols-2 gap-3"></div></fieldset>
         <fieldset><legend class="font-semibold text-sm mb-3">Extras</legend><div id="qExtras" class="space-y-3"></div></fieldset>
         <label class="block"><span class="font-semibold text-sm">Prazo</span>
-          <select id="qRush" class="mt-2"><option value="1">Normal (3 semanas)</option><option value="1.3">Rápido (7 dias, +30%)</option></select></label>
+          <select id="qRush" class="mt-2"><option value="1">Normal (7 dias)</option><option value="1.3">Expresso (3 dias, +30%)</option></select></label>
       </div>
-      <div class="bg-ink border border-line rounded-2xl p-8 flex flex-col justify-between">
-        <div><p class="text-sm text-lilac/80">Investimento estimado</p>
-        <p class="font-display text-4xl lg:text-5xl font-extrabold text-volt mt-2" id="qPrice">R$ 0</p>
-        <p class="text-xs text-lilac/70 mt-3">Valor de referência. O orçamento final é fechado após conversa rápida sobre o escopo.</p></div>
-        <a id="qSend" href="#" target="_blank" rel="noopener" class="btn-volt rounded-full px-6 py-4 text-center mt-8">Enviar para o WhatsApp</a>
+      <div class="bg-ink border border-line rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+        <div><p class="text-sm text-lilac/80">Investimento</p>
+        <p class="mt-2 flex items-center gap-2 flex-wrap"><s class="text-lilac/60 text-lg" id="qOld"></s><span class="bg-volt text-ink text-[11px] font-extrabold rounded-full px-2 py-0.5">-65%</span></p>
+        <p class="font-display text-4xl lg:text-5xl font-extrabold text-volt" id="qPrice">R$ 0</p>
+        <p class="text-sm font-semibold mt-1" id="qSave"></p>
+        <div class="mt-6 border-t border-line pt-5"><p class="text-sm font-bold mb-3">Você recebe:</p><ul id="qInc" class="space-y-2 text-sm text-lilac/95"></ul></div>
+        <p class="text-xs text-lilac/70 mt-5">Valor de referência. O orçamento final é fechado após conversa rápida sobre o escopo.</p></div>
+        <a id="qSend" href="#" target="_blank" rel="noopener" class="btn-volt rounded-full px-6 py-4 text-center mt-8">Garantir com desconto no WhatsApp</a>
       </div>
     </div>
   </div>
@@ -154,10 +161,11 @@
 <!-- DEPOIMENTOS -->
 <section class="max-w-7xl mx-auto px-5 py-20">
   <h2 class="h1 text-3xl md:text-5xl font-bold mb-12">Quem já trabalhou comigo</h2>
-  <div class="grid md:grid-cols-3 gap-6">
-    <figure class="card p-8"><blockquote class="leading-relaxed">“Em duas semanas o site já estava gerando orçamentos. Meu antigo nem abria direito no celular.”</blockquote><figcaption class="mt-6 text-sm"><b>Nome do cliente</b><br><span class="text-lilac/70">Clínica Exemplo</span></figcaption></figure>
-    <figure class="card p-8 md:translate-y-6"><blockquote class="leading-relaxed">“Entendeu o que eu precisava sem eu explicar duas vezes. Entregou antes do prazo.”</blockquote><figcaption class="mt-6 text-sm"><b>Nome do cliente</b><br><span class="text-lilac/70">Loja Exemplo</span></figcaption></figure>
-    <figure class="card p-8"><blockquote class="leading-relaxed">“O visual ficou muito acima do que eu esperava pelo preço. Já indiquei para dois amigos.”</blockquote><figcaption class="mt-6 text-sm"><b>Nome do cliente</b><br><span class="text-lilac/70">Escritório Exemplo</span></figcaption></figure>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <figure class="card p-7 flex flex-col"><div class="text-volt tracking-widest text-sm" aria-label="5 estrelas">★★★★★</div><blockquote class="leading-relaxed mt-3 flex-1">“Em duas semanas o site já estava gerando orçamentos. Meu antigo nem abria direito no celular.”</blockquote><figcaption class="mt-6 flex items-center gap-3 text-sm"><span class="w-10 h-10 rounded-full bg-violet grid place-items-center font-bold shrink-0">CS</span><span><b>Carol Soares</b><br><span class="text-lilac/70">Cliente DevStudio</span></span></figcaption></figure>
+    <figure class="card p-7 flex flex-col"><div class="text-volt tracking-widest text-sm" aria-label="5 estrelas">★★★★★</div><blockquote class="leading-relaxed mt-3 flex-1">“Entendeu o que eu precisava sem eu explicar duas vezes. Entregou antes do prazo.”</blockquote><figcaption class="mt-6 flex items-center gap-3 text-sm"><span class="w-10 h-10 rounded-full bg-violet grid place-items-center font-bold shrink-0">FV</span><span><b>Fernanda Videl</b><br><span class="text-lilac/70">Cliente DevStudio</span></span></figcaption></figure>
+    <figure class="card p-7 flex flex-col"><div class="text-volt tracking-widest text-sm" aria-label="5 estrelas">★★★★★</div><blockquote class="leading-relaxed mt-3 flex-1">“O visual ficou muito acima do que eu esperava pelo preço. Já indiquei para dois amigos.”</blockquote><figcaption class="mt-6 flex items-center gap-3 text-sm"><span class="w-10 h-10 rounded-full bg-violet grid place-items-center font-bold shrink-0">AF</span><span><b>Arthur Fernandes</b><br><span class="text-lilac/70">Cliente DevStudio</span></span></figcaption></figure>
+    <figure class="card p-7 flex flex-col"><div class="text-volt tracking-widest text-sm" aria-label="5 estrelas">★★★★★</div><blockquote class="leading-relaxed mt-3 flex-1">“Gostei muito do resultado do site! Ficou exatamente como eu queria, bem organizado, bonito e fácil de navegar. O atendimento foi atencioso do início ao fim e todas as minhas dúvidas foram respondidas rapidamente.”</blockquote><figcaption class="mt-6 flex items-center gap-3 text-sm"><span class="w-10 h-10 rounded-full bg-violet grid place-items-center font-bold shrink-0">JF</span><span><b>Julia Ferraz</b><br><span class="text-lilac/70">Cliente DevStudio</span></span></figcaption></figure>
   </div>
 </section>
 
@@ -165,7 +173,7 @@
 <section id="faq" class="max-w-3xl mx-auto px-5 py-24">
   <h2 class="h1 text-3xl md:text-4xl font-bold mb-10">Perguntas frequentes</h2>
   <div class="space-y-3">
-    <details class="card px-6 py-5"><summary class="flex justify-between font-semibold">Quanto tempo leva para ficar pronto?<span class="plus text-volt text-2xl leading-none">+</span></summary><p class="mt-3 text-lilac/90">O prazo padrão é de 3 semanas. Se você tem pressa, o modo rápido entrega em 7 dias, com acréscimo de 30% no valor.</p></details>
+    <details class="card px-6 py-5"><summary class="flex justify-between font-semibold">Quanto tempo leva para ficar pronto?<span class="plus text-volt text-2xl leading-none">+</span></summary><p class="mt-3 text-lilac/90">O prazo padrão é de 7 dias. Se você tem pressa, o modo expresso entrega em 3 dias, com acréscimo de 30% no valor.</p></details>
     <details class="card px-6 py-5"><summary class="flex justify-between font-semibold">O site vai funcionar bem no celular?<span class="plus text-volt text-2xl leading-none">+</span></summary><p class="mt-3 text-lilac/90">Sim. Desenvolvo pensando primeiro no celular e testo em várias telas antes da entrega.</p></details>
     <details class="card px-6 py-5"><summary class="flex justify-between font-semibold">Como funciona o pagamento?<span class="plus text-volt text-2xl leading-none">+</span></summary><p class="mt-3 text-lilac/90">50% na aprovação do protótipo e 50% na entrega. Aceito Pix e cartão.</p></details>
     <details class="card px-6 py-5"><summary class="flex justify-between font-semibold">Posso editar o conteúdo depois?<span class="plus text-volt text-2xl leading-none">+</span></summary><p class="mt-3 text-lilac/90">Pode. Se precisar de painel de edição, incluo no projeto e ensino você a usar.</p></details>

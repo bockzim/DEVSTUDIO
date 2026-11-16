@@ -28,3 +28,18 @@ input,textarea,select{background:#07040D;border:1px solid #2A1F42;border-radius:
 input:focus,textarea:focus,select:focus,button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid #D4FF3A;outline-offset:2px}
 input[type=checkbox]{width:22px;height:22px;min-height:0;padding:0;flex:none;accent-color:#D4FF3A}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.hero-in>*{opacity:1;transform:none}}
+
+/* faixa Black November */
+.bf{background:#D4FF3A;color:#07040D;overflow:hidden;font-weight:800;font-size:.78rem;letter-spacing:.02em;height:34px;display:flex;align-items:center;white-space:nowrap}
+.bf-track{display:flex;width:max-content;animation:bf 38s linear infinite}
+.bf-grp{display:flex;align-items:center;gap:1.1rem;padding-right:1.1rem}
+.bf-grp i{font-style:normal;opacity:.55}
+.bf-hot{background:#07040D;color:#D4FF3A;border-radius:999px;padding:.2rem .7rem}
+@keyframes bf{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.bf-track{animation:none!important}}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 112px)}
+/* opções de tipo de projeto */
+.opt{display:block;border:1px solid #2A1F42;border-radius:14px;padding:.85rem;cursor:pointer;background:#07040D;transition:border-color .2s,background .2s;position:relative}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt:has(input:checked){border-color:#D4FF3A;background:#17102a;box-shadow:0 0 0 1px #D4FF3A inset}
+.opt:has(input:focus-visible){outline:2px solid #D4FF3A;outline-offset:2px}

@@ -6,7 +6,14 @@ const CFG={
   instagram:"https://instagram.com/devstudio", // TROQUE pelo seu @ real
   previewImages:true, // true = usa assets/previews/<slug>.webp quando existir
 
-  types:[{n:"Landing page",p:400},{n:"Site institucional",p:900},{n:"Loja virtual",p:1700},{n:"Sistema / painel",p:4000}],
+  off:0.65, // desconto Black November (valores abaixo são os já com desconto; o "de" é calculado)
+  promoFim:"30/11", // texto do fim da promoção (a contagem usa 30 de novembro)
+  types:[
+    {n:"Landing page",p:400,inc:["Design sob medida, sem template","100% responsivo (celular em 1º lugar)","Botão de WhatsApp e formulário","SEO básico e carregamento rápido","Domínio e hospedagem configurados","30 dias de suporte"]},
+    {n:"Site institucional",p:900,inc:["Até 6 páginas com design exclusivo","100% responsivo e rápido","WhatsApp, mapa e formulário","SEO técnico para aparecer no Google","Domínio e hospedagem configurados","30 dias de suporte"]},
+    {n:"Loja virtual",p:1700,inc:["Catálogo com busca e categorias","Carrinho e checkout (Pix e cartão)","Painel para gerenciar produtos","Design exclusivo e responsivo","SEO técnico e alta velocidade","30 dias de suporte"]},
+    {n:"Sistema / painel",p:4000,inc:["Área de login com níveis de acesso","Painel com dados e relatórios","Automações sob medida","Design exclusivo e responsivo","Código 100% seu, sem amarras","30 dias de suporte"]}
+  ],
   extras:[{n:"Blog com painel de edição",p:300},{n:"Integração com WhatsApp e CRM",p:600},{n:"Animações avançadas",p:300},{n:"SEO técnico completo",p:100},{n:"Multi-idioma",p:200}],
 
   /* k: "entregue" (cliente real) ou "demo". url vazia = card sem link.
