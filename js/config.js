@@ -4,6 +4,8 @@
 const CFG={
   whatsapp:"5524999446503", // DDI + DDD + número
   pixelId:"1117758200870771",
+  clarityId:"",
+  gaId:"G-1XYGD48M16",
   instagram:"https://www.instagram.com/devstudio_ofc/",
   previewImages:true, // true = usa assets/previews/<slug>.webp quando existir
 
