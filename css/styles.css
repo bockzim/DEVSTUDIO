@@ -56,3 +56,8 @@ html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 112px)}
 .dot{min-width:0!important;min-height:0!important;width:8px;height:8px;border:0!important;border-radius:50%;background:#2A1F42;padding:0;transition:.2s}
 .dot[aria-current=true]{background:#D4FF3A;width:22px;border-radius:999px}
 .car-nav .dot{position:relative}.car-nav .dot::after{content:"";position:absolute;inset:-18px -6px}
+/* evita que o carrossel alargue a coluna e a página */
+#orcamento .grid>*{min-width:0}
+#orcamento .car-wrap{max-width:100%;min-width:0}
+#orcamento .car{width:100%;max-width:100%}
+#qInc li span:last-child,.tier li span:last-child{min-width:0;overflow-wrap:anywhere}
