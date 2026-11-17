@@ -49,3 +49,6 @@ Os dois sites de cliente (Chanandry) abrem os endereços reais.
 
 ## Links das demos
 Os links dos cards apontam para `.../index.html` (e não só para a pasta). Assim abrem direto, inclusive quando o projeto é aberto pelo computador sem servidor.
+
+## Domínio
+Domínio próprio: `studiodev.site` (arquivo `CNAME`). DNS na Hostinger: 4 registros A para 185.199.108.153, 185.199.109.153, 185.199.110.153 e 185.199.111.153, e CNAME `www` para `bockzim.github.io`. Depois, em Settings > Pages do repositório, confirmar o Custom domain e marcar Enforce HTTPS.

@@ -47,7 +47,7 @@ const CFG={
     {slug:"forma-personal",t:"Forma Personal",k:"demo",host:"formapersonal.com.br",url:"demos/forma-personal/index.html",
      d:"Demo para personal trainer, com desafio interativo de 2 minutos, configurador de plano e jornada de 12 semanas.",tags:["Timer interativo","Configurador","Conversão"],a:"#19D97B",b:"#070807",
      hero:{bg:"linear-gradient(160deg,#070807,#0A2E1E)",fg:"#EAF3EE",ac:"#FF5A1F",on:"#160600",tag:"Personal trainer",title:"Treino que cabe na sua rotina.",sub:"Desafio de 2 minutos, planos online e presenciais.",cta:"Fazer o desafio",chips:["Online","Presencial"]}},
-    {slug:"oliva-spa",t:"Oliva Spa",k:"demo",host:"bockzim.github.io/DEVSTUDIO/demos/oliva-spa",url:"demos/oliva-spa/index.html",
+    {slug:"oliva-spa",t:"Oliva Spa",k:"demo",host:"studiodev.site/demos/oliva-spa",url:"demos/oliva-spa/index.html",
      d:"Demo de spa com luz que muda conforme o horário, cardápio de rituais e convite pessoal para postar e reservar pelo WhatsApp.",tags:["Interativo","Convite","WhatsApp"],a:"#6B7A3A",b:"#F8F5EE",
      hero:{bg:"linear-gradient(160deg,#F8F5EE,#E8DEC9)",fg:"#3C4A24",ac:"#6B7A3A",on:"#F8F5EE",serif:true,tag:"Spa urbano",title:"Oliva",sub:"Rituais de bem-estar com luz natural.",cta:"Garantir meu convite",chips:["Rituais","Day use"]}}
   ]
