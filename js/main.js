@@ -1,5 +1,5 @@
 const $=s=>document.querySelector(s),brl=n=>n.toLocaleString("pt-BR",{style:"currency",currency:"BRL",maximumFractionDigits:0});
-const wa=t=>`https://wa.me/${CFG.whatsapp}?text=${encodeURIComponent(t)}`;
+const wa=t=>`https://wa.me/${CFG.whatsapp}?text=${encodeURIComponent(t+(TRK.ref?`\n\n(ref: ${TRK.ref})`:""))}`;
 $("#yr").textContent=new Date().getFullYear();
 $("#wpp").href=wa("Olá! Vim pelo seu site e quero conversar sobre um projeto.");
 $("#lnWa").href=wa("Olá! Vim pelo seu site.");$("#lnIg").href=CFG.instagram;
@@ -126,6 +126,6 @@ drawTiers();drawRush();calc();
 $("#fSend").onclick=()=>{
  const n=$("#fName").value.trim(),m=$("#fMsg").value.trim(),e=$("#fMail").value.trim();
  if(!n||!m){$("#fErr").classList.remove("hidden");return}
- $("#fErr").classList.add("hidden");
+ $("#fErr").classList.add("hidden"); trackLead("formulario");
  window.open(wa(`Olá! Sou ${n}${e?` (${e})`:""}.\n${m}`),"_blank","noopener");
 };

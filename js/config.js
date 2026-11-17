@@ -3,7 +3,8 @@
    ========================================================== */
 const CFG={
   whatsapp:"5524999446503", // DDI + DDD + número
-  instagram:"https://instagram.com/devstudio", // TROQUE pelo seu @ real
+  pixelId:"1117758200870771",
+  instagram:"https://instagram.com/SEU_INSTAGRAM", // TROQUE pelo seu @ real
   previewImages:true, // true = usa assets/previews/<slug>.webp quando existir
 
   off:0.65, // desconto Black November (valores abaixo são os já com desconto; o "de" é calculado)
