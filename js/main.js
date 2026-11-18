@@ -2,7 +2,7 @@ const $=s=>document.querySelector(s),brl=n=>n.toLocaleString("pt-BR",{style:"cur
 const wa=t=>`https://wa.me/${CFG.whatsapp}?text=${encodeURIComponent(t+(TRK.ref?`\n\n(ref: ${TRK.ref})`:""))}`;
 $("#yr").textContent=new Date().getFullYear();
 $("#wpp").href=wa("Olá! Vim pelo seu site e quero conversar sobre um projeto.");
-$("#lnWa").href=wa("Olá! Vim pelo seu site.");$("#lnIg").href=CFG.instagram;
+$("#lnWa").href=wa("Olá! Vim pelo seu site.");$("#heroWa").href=wa("Olá! Vi o anúncio e quero um site para o meu negócio.");$("#orcWa").href=$("#heroWa").href;$("#lnIg").href=CFG.instagram;
 
 // menu
 const mb=$("#menuBtn"),mn=$("#menu");
