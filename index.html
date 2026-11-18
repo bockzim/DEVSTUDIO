@@ -23,11 +23,11 @@
 <div class="glow" id="glow"></div>
 
 <header class="sticky z-50 backdrop-blur-xl bg-ink/70 border-b border-line" style="top:env(safe-area-inset-top,0px)">
-  <div id="bf" class="bf" role="region" aria-label="Promoção Black November"><div class="bf-track" id="bfTrack"></div></div>
+  <div id="bf" class="bf promo-only" role="region" aria-label="Promoção Black November"><div class="bf-track" id="bfTrack"></div></div>
   <div class="max-w-7xl mx-auto px-5 h-16 flex items-center justify-between">
     <a href="#top" class="font-display font-bold text-lg tracking-tight">dev<span class="text-volt">studio</span></a>
     <nav class="hidden md:flex gap-8 text-sm font-semibold text-lilac">
-      <a href="#trabalhos" class="hover:text-white">Trabalhos</a><a href="#servicos" class="hover:text-white">Serviços</a><a href="#orcamento" class="hover:text-white">Orçamento</a><a href="#processo" class="hover:text-white">Processo</a><a href="#faq" class="hover:text-white">Dúvidas</a>
+      <a href="#trabalhos" class="hover:text-white">Trabalhos</a><a href="#servicos" class="hover:text-white">Serviços</a><a href="#diferenciais" class="hover:text-white">Diferenciais</a><a href="#orcamento" class="hover:text-white">Orçamento</a><a href="#processo" class="hover:text-white">Processo</a><a href="#faq" class="hover:text-white">Dúvidas</a>
     </nav>
     <div class="flex items-center gap-3">
       <a href="#contato" class="btn-volt rounded-full px-4 sm:px-5 py-3 text-sm whitespace-nowrap">Quero meu site</a>
@@ -35,23 +35,58 @@
     </div>
   </div>
   <div id="menu" class="hidden md:hidden border-t border-line px-5 py-4 flex flex-col gap-4 font-semibold">
-    <a href="#trabalhos">Trabalhos</a><a href="#servicos">Serviços</a><a href="#orcamento">Orçamento</a><a href="#processo">Processo</a><a href="#faq">Dúvidas</a><a href="#contato" class="text-volt">Quero meu site</a>
+    <a href="#trabalhos">Trabalhos</a><a href="#servicos">Serviços</a><a href="#diferenciais">Diferenciais</a><a href="#orcamento">Orçamento</a><a href="#processo">Processo</a><a href="#faq">Dúvidas</a><a href="#contato" class="text-volt">Quero meu site</a>
   </div>
 </header>
 
 <main id="top" class="relative z-10">
 <!-- HERO -->
-<section class="relative pt-6 pb-20 md:pt-12">
+<section class="relative pt-6 pb-16 md:pt-12">
   <div class="absolute inset-0 grid-bg -z-10"></div>
-  <div class="max-w-7xl mx-auto px-5 grid lg:grid-cols-[1.15fr_.85fr] lg:grid-rows-[auto_auto] gap-x-14 gap-y-8 lg:items-center">
-    <div class="hero-in lg:self-end">
-      <p class="inline-flex items-center gap-2 text-sm text-lilac border border-line rounded-full px-4 py-1.5"><span class="w-2 h-2 rounded-full bg-volt animate-pulse"></span><span id="slots">3 vagas abertas para este mês</span></p>
-      <h1 class="h1 text-[2.5rem] sm:text-6xl xl:text-7xl font-extrabold mt-5">Seu site vende<br>enquanto você <span class="text-volt" id="rot">dorme.</span></h1>
-    </div>
-    <!-- leads gerados -->
-    <div class="relative hero-in lg:col-start-2 lg:row-span-2 lg:row-start-1">
+  <div class="max-w-4xl mx-auto px-5 text-center hero-in">
+    <p id="slotsBox" class="promo-only inline-flex items-center gap-2 text-sm text-lilac border border-line rounded-full px-4 py-1.5"><span class="w-2 h-2 rounded-full bg-volt animate-pulse"></span><span id="slots">3 vagas abertas para este mês</span></p>
+    <h1 class="h1 text-[2.5rem] sm:text-6xl xl:text-7xl font-extrabold mt-5">Seu site vende<br>enquanto você <span class="text-volt" id="rot">dorme.</span></h1>
+    <div id="showcase" class="relative mt-8 mx-auto max-w-2xl text-left">
       <div class="absolute -inset-6 bg-violet/30 blur-3xl rounded-full"></div>
-      <div class="card relative overflow-hidden shadow-2xl shadow-violet/20">
+      <a id="scLink" href="#trabalhos" target="_blank" rel="noopener" class="card relative block overflow-hidden shadow-2xl shadow-violet/20">
+        <div class="flex items-center gap-2 px-4 py-3 border-b border-line">
+          <i class="w-3 h-3 rounded-full bg-[#ff5f57]"></i><i class="w-3 h-3 rounded-full bg-[#febc2e]"></i><i class="w-3 h-3 rounded-full bg-[#28c840]"></i>
+          <span id="scHost" class="ml-3 text-xs text-lilac/70 bg-ink rounded-md px-3 py-1 flex-1 truncate">seusite.com.br</span>
+        </div>
+        <div class="relative overflow-hidden bg-panel" style="aspect-ratio:1000/540">
+          <img id="scA" width="1000" height="540" alt="" class="sc-img absolute inset-0 w-full h-full object-cover object-top" style="opacity:1">
+          <img id="scB" width="1000" height="540" alt="" class="sc-img absolute inset-0 w-full h-full object-cover object-top" style="opacity:0">
+        </div>
+        <div class="flex items-center justify-between gap-3 p-4"><p class="text-sm"><b id="scName">&nbsp;</b><br><span id="scKind" class="text-lilac/70 text-xs">&nbsp;</span></p><span class="text-volt font-bold text-sm whitespace-nowrap">Abrir site ↗</span></div>
+      </a>
+      <div id="scDots" class="flex justify-center gap-1 mt-3" role="group" aria-label="Escolher projeto"></div>
+    </div>
+    <p class="text-lg sm:text-xl text-lilac/90 max-w-xl mx-auto leading-snug mt-8"><b class="text-white">Mais clientes chamando no seu WhatsApp.</b> Site sob medida, sem template, entrega a partir de 3 dias.</p>
+    <p id="heroOffer" class="mt-3 text-sm font-semibold text-volt"></p>
+    <div class="flex flex-col sm:flex-row sm:justify-center gap-4 mt-5 [&>a]:text-center">
+      <a id="heroWa" href="#" target="_blank" rel="noopener" class="btn-volt rounded-full px-7 py-4">QUERO MEU SITE PROFISSIONAL</a>
+      <a href="#trabalhos" class="rounded-full px-7 py-4 border border-line font-semibold hover:border-violet transition">VER PROJETOS</a>
+    </div>
+    <ul class="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-lilac/90">
+      <li class="flex gap-2"><span class="text-volt font-bold">✓</span>Desenvolvimento personalizado</li>
+      <li class="flex gap-2"><span class="text-volt font-bold">✓</span>100% responsivo</li>
+      <li class="flex gap-2"><span class="text-volt font-bold">✓</span>Projeto 100% seu</li>
+    </ul>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="border-y border-line bg-panel overflow-hidden py-5" aria-hidden="true">
+  <div class="marquee flex w-max gap-12 font-display font-bold text-xl text-lilac/60 whitespace-nowrap">
+    <script>document.write(Array(2).fill('<span class="flex gap-12"><span>Next.js</span><span>React</span><span>Tailwind</span><span>TypeScript</span><span>Node</span><span>SEO técnico</span><span>Performance 95+</span><span>Acessibilidade</span><span>Integrações</span></span>').join(''))</script>
+  </div>
+</div>
+
+<!-- LEADS -->
+<section class="max-w-7xl mx-auto px-5 pt-16">
+  <div class="relative max-w-xl mx-auto">
+    <div class="absolute -inset-6 bg-violet/30 blur-3xl rounded-full"></div>
+    <div class="relative"><div class="card relative overflow-hidden shadow-2xl shadow-violet/20">
         <div class="flex items-center gap-2 px-4 py-3 border-b border-line">
           <i class="w-3 h-3 rounded-full bg-[#ff5f57]"></i><i class="w-3 h-3 rounded-full bg-[#febc2e]"></i><i class="w-3 h-3 rounded-full bg-[#28c840]"></i>
           <span class="ml-3 text-xs text-lilac/70 bg-ink rounded-md px-3 py-1 flex-1 truncate">seucliente.com.br</span>
@@ -67,28 +102,12 @@
             <p class="text-sm"><b>Marina</b> pediu um orçamento<br><span class="text-lilac/70 text-xs" id="ago">agora mesmo</span></p>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="hero-in lg:self-start">
-      <p class="text-lg sm:text-xl text-lilac/90 max-w-xl leading-snug"><b class="text-white">Mais clientes chamando no seu WhatsApp.</b> Site sob medida, sem template, entrega a partir de 3 dias.</p>
-      <p class="mt-3 text-sm font-semibold text-volt">Landing page a partir de R$ 400 até 30/11</p>
-      <div class="flex flex-col sm:flex-row gap-4 mt-5 [&>a]:text-center">
-        <a id="heroWa" href="#" target="_blank" rel="noopener" class="btn-volt rounded-full px-7 py-4">Chamar no WhatsApp</a>
-        <a href="#orcamento" class="rounded-full px-7 py-4 border border-line font-semibold hover:border-violet transition">Calcular meu orçamento</a>
-      </div>
-    </div>
+      </div></div>
   </div>
 </section>
 
-<!-- MARQUEE -->
-<div class="border-y border-line bg-panel overflow-hidden py-5" aria-hidden="true">
-  <div class="marquee flex w-max gap-12 font-display font-bold text-xl text-lilac/60 whitespace-nowrap">
-    <script>document.write(Array(2).fill('<span class="flex gap-12"><span>Next.js</span><span>React</span><span>Tailwind</span><span>TypeScript</span><span>Node</span><span>SEO técnico</span><span>Performance 95+</span><span>Acessibilidade</span><span>Integrações</span></span>').join(''))</script>
-  </div>
-</div>
-
 <!-- STATS -->
-<section class="max-w-7xl mx-auto px-5 py-20 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+<section class="max-w-7xl mx-auto px-5 pt-10 pb-16 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
   <div><p class="font-display text-4xl md:text-5xl font-bold text-volt"><span data-count="100">100</span>+</p><p class="text-lilac/80 mt-2 text-sm">sites entregues</p></div>
   <div><p class="font-display text-4xl md:text-5xl font-bold"><span data-count="98">98</span></p><p class="text-lilac/80 mt-2 text-sm">nota média no Lighthouse</p></div>
   <div><p class="font-display text-4xl md:text-5xl font-bold text-volt"><span data-count="3">3</span> dias</p><p class="text-lilac/80 mt-2 text-sm">a partir de, no modo expresso</p></div>
@@ -98,7 +117,7 @@
 <!-- TRABALHOS -->
 <section id="trabalhos" class="max-w-7xl mx-auto px-5 py-20">
   <div class="flex flex-wrap items-end justify-between gap-6 mb-10">
-    <h2 class="h1 text-3xl md:text-5xl font-bold max-w-2xl">Sites no ar que você pode abrir agora</h2>
+    <div><h2 class="h1 text-3xl md:text-5xl font-bold max-w-2xl">Projetos reais que você pode abrir agora</h2><p class="text-lilac/90 mt-4 max-w-2xl">Cada projeto mostra o desafio do negócio e o que foi construído. Os marcados como demo são demonstrações de como seu segmento pode ficar.</p></div>
     <div class="flex gap-2" id="filters" role="group" aria-label="Filtrar projetos">
       <button class="chip" data-f="all" aria-pressed="true">Todos</button>
       <button class="chip" data-f="entregue" aria-pressed="false">Entregues</button>
@@ -108,19 +127,34 @@
   <div id="projects" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
 </section>
 
+<div class="max-w-7xl mx-auto px-5 -mt-8 pb-16 text-center"><a href="#" data-wa="proj" target="_blank" rel="noopener" class="btn-volt rounded-full px-7 py-4 inline-block">QUERO UM SITE ASSIM PARA O MEU NEGÓCIO</a></div>
+
 <!-- SERVICOS -->
 <section id="servicos" class="max-w-7xl mx-auto px-5 py-20">
-  <h2 class="h1 text-3xl md:text-5xl font-bold max-w-3xl mb-12">Tudo que um site precisa para trazer cliente</h2>
-  <div class="grid md:grid-cols-6 gap-6">
-    <div class="card p-8 md:col-span-4 bg-gradient-to-br from-violet/30 to-panel">
-      <h3 class="font-display text-2xl font-bold">Landing pages de alta conversão</h3>
-      <p class="text-lilac/90 mt-3 max-w-lg">Estrutura pensada para um único objetivo: o visitante clicar no botão. Texto, hierarquia e velocidade trabalhando juntos.</p>
-    </div>
-    <div class="card p-8 md:col-span-2"><h3 class="font-display text-xl font-bold">Sites institucionais</h3><p class="text-lilac/90 mt-3 text-sm">Sua empresa com cara de gigante, em qualquer tela.</p></div>
-    <div class="card p-8 md:col-span-2"><h3 class="font-display text-xl font-bold">Lojas e catálogos</h3><p class="text-lilac/90 mt-3 text-sm">Pagamento, estoque e checkout integrados.</p></div>
-    <div class="card p-8 md:col-span-2"><h3 class="font-display text-xl font-bold">Sistemas e painéis</h3><p class="text-lilac/90 mt-3 text-sm">Áreas de login, dashboards e automações sob medida.</p></div>
-    <div class="card p-8 md:col-span-2 border-volt/40"><h3 class="font-display text-xl font-bold text-volt">SEO e performance</h3><p class="text-lilac/90 mt-3 text-sm">Carrega em menos de 2 segundos e aparece no Google.</p></div>
+  <h2 class="h1 text-3xl md:text-5xl font-bold max-w-3xl">Escolha a solução certa para o seu momento</h2>
+  <p class="text-lilac/90 mt-4 mb-10 max-w-2xl">Cada solução resolve um problema diferente. Veja para quem serve, o que está incluso e peça o orçamento já com ela selecionada.</p>
+  <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
+    <div class="card p-7 flex flex-col border-volt/40"><h3 class="font-display text-xl font-bold">Landing page</h3><p class="text-lilac/90 mt-3 text-sm">Uma página criada para apresentar sua oferta, destacar seus diferenciais e conduzir o visitante até o contato ou a compra.</p><p class="mt-3 text-xs text-lilac/70"><b class="text-white">Ideal para:</b> campanhas, lançamentos, serviços e captação de clientes.</p><ul class="mt-4 space-y-2 text-sm text-lilac/95 flex-1"><li class="flex gap-2"><span class="text-volt font-bold">✓</span><span>Design sob medida, sem template</span></li><li class="flex gap-2"><span class="text-volt font-bold">✓</span><span>Seções de conversão e botão de WhatsApp</span></li><li class="flex gap-2"><span class="text-volt font-bold">✓</span><span>SEO básico e carregamento rápido</span></li><li class="flex gap-2"><span class="text-volt font-bold">✓</span><span>Domínio e hospedagem configurados</span></li></ul><button type="button" data-pick="0" class="btn-volt rounded-full px-5 py-3.5 text-sm mt-6 w-full">QUERO MINHA LANDING PAGE</button></div>
+    <div class="card p-7 flex flex-col "><h3 class="font-display text-xl font-bold">Site institucional</h3><p class="text-lilac/90 mt-3 text-sm">O cartão de visitas completo da sua empresa: serviços, quem somos, contato e tudo que passa confiança.</p><p class="mt-3 text-xs text-lilac/70"><b class="text-white">Ideal para:</b> empresas e profissionais que querem ser encontrados e levados a sério.</p><ul class="mt-4 space-y-2 text-sm text-lilac/95 flex-1"><li class="flex gap-2"><span class="text-volt font-bold">✓</span><span>Até 6 páginas com design exclusivo</span></li><li class="flex gap-2"><span class="text-volt font-bold">✓</span><span>WhatsApp, mapa e formulário de contato</span></li><li class="flex gap-2"><span class="text-volt font-bold">✓</span><span>SEO on-page em todas as páginas</span></li><li class="flex gap-2"><span class="text-volt font-bold">✓</span><span>Domínio e hospedagem configurados</span></li></ul><button type="button" data-pick="1" class="btn-volt rounded-full px-5 py-3.5 text-sm mt-6 w-full">QUERO MEU SITE INSTITUCIONAL</button></div>
+    <div class="card p-7 flex flex-col "><h3 class="font-display text-xl font-bold">Loja virtual</h3><p class="text-lilac/90 mt-3 text-sm">Catálogo, carrinho e checkout para vender online, com painel para você gerenciar produtos e pedidos.</p><p class="mt-3 text-xs text-lilac/70"><b class="text-white">Ideal para:</b> quem quer vender produtos pela internet sem depender de marketplace.</p><ul class="mt-4 space-y-2 text-sm text-lilac/95 flex-1"><li class="flex gap-2"><span class="text-volt font-bold">✓</span><span>Catálogo com busca, filtros e categorias</span></li><li class="flex gap-2"><span class="text-volt font-bold">✓</span><span>Checkout com Pix e cartão</span></li><li class="flex gap-2"><span class="text-volt font-bold">✓</span><span>Painel de produtos e pedidos</span></li><li class="flex gap-2"><span class="text-volt font-bold">✓</span><span>Cálculo de frete</span></li></ul><button type="button" data-pick="2" class="btn-volt rounded-full px-5 py-3.5 text-sm mt-6 w-full">QUERO MINHA LOJA VIRTUAL</button></div>
+    <div class="card p-7 flex flex-col "><h3 class="font-display text-xl font-bold">Sistema ou painel</h3><p class="text-lilac/90 mt-3 text-sm">Área de login, painéis e rotinas sob medida para organizar o que hoje você faz em planilhas e mensagens.</p><p class="mt-3 text-xs text-lilac/70"><b class="text-white">Ideal para:</b> negócios que precisam de controle, relatórios e processos próprios.</p><ul class="mt-4 space-y-2 text-sm text-lilac/95 flex-1"><li class="flex gap-2"><span class="text-volt font-bold">✓</span><span>Levantamento de requisitos e protótipo</span></li><li class="flex gap-2"><span class="text-volt font-bold">✓</span><span>Login com níveis de acesso</span></li><li class="flex gap-2"><span class="text-volt font-bold">✓</span><span>Painel com cadastros, listas e busca</span></li><li class="flex gap-2"><span class="text-volt font-bold">✓</span><span>Código 100% seu, sem amarras</span></li></ul><button type="button" data-pick="3" class="btn-volt rounded-full px-5 py-3.5 text-sm mt-6 w-full">QUERO MEU SISTEMA</button></div>
   </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section id="diferenciais" class="max-w-7xl mx-auto px-5 py-20">
+  <h2 class="h1 text-3xl md:text-5xl font-bold max-w-4xl">Não entregamos apenas um site bonito.</h2>
+  <p class="text-lg text-lilac/90 mt-5 mb-10 max-w-3xl">Construímos uma experiência digital pensada para o seu negócio, com decisões que você sente no resultado.</p>
+  <ul class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+<li class="card p-6"><h3 class="font-display font-bold text-lg">Design personalizado</h3><p class="text-sm text-lilac/90 mt-2">Nada de template pronto: seu site não se parece com o de ninguém, e o visitante percebe isso na primeira tela.</p></li>
+<li class="card p-6"><h3 class="font-display font-bold text-lg">Pensado para conversão</h3><p class="text-sm text-lilac/90 mt-2">Cada seção conduz o visitante até o contato, seja por WhatsApp, formulário ou compra.</p></li>
+<li class="card p-6"><h3 class="font-display font-bold text-lg">Responsivo de verdade</h3><p class="text-sm text-lilac/90 mt-2">Grande parte dos visitantes chega pelo celular, então o site é desenhado primeiro para ele.</p></li>
+<li class="card p-6"><h3 class="font-display font-bold text-lg">Rápido por construção</h3><p class="text-sm text-lilac/90 mt-2">Quem espera a página carregar desiste. Um site leve segura o visitante e ajuda no Google.</p></li>
+<li class="card p-6"><h3 class="font-display font-bold text-lg">Código sob medida</h3><p class="text-sm text-lilac/90 mt-2">Sem plugins pesados e sem amarras: mais seguro, mais rápido e fácil de evoluir depois.</p></li>
+<li class="card p-6"><h3 class="font-display font-bold text-lg">O projeto é seu</h3><p class="text-sm text-lilac/90 mt-2">Domínio, hospedagem e código ficam na sua conta, sem mensalidade escondida.</p></li>
+<li class="card p-6"><h3 class="font-display font-bold text-lg">Integração com WhatsApp</h3><p class="text-sm text-lilac/90 mt-2">O cliente chama você com a mensagem já pronta, em um toque.</p></li>
+<li class="card p-6"><h3 class="font-display font-bold text-lg">Suporte e orientação</h3><p class="text-sm text-lilac/90 mt-2">Você recebe o site no ar, com orientação para usar e 30 dias de suporte.</p></li>
+  </ul>
 </section>
 
 <!-- ORCAMENTO -->
@@ -128,9 +162,9 @@
   <p class="text-center text-sm text-lilac/90 mb-5">Prefere falar direto? <a id="orcWa" href="#" target="_blank" rel="noopener" class="text-volt font-semibold underline underline-offset-4">Chamar no WhatsApp</a></p>
   <div class="card p-6 md:p-12 relative overflow-hidden">
     <div class="absolute -right-24 -top-24 w-72 h-72 bg-volt/10 blur-3xl rounded-full"></div>
-    <p class="relative inline-block bg-volt text-ink text-xs font-extrabold rounded-full px-3 py-1 mb-4">BLACK NOVEMBER · 65% OFF</p>
-    <h2 class="h1 text-3xl md:text-4xl font-bold">Monte seu orçamento agora</h2>
-    <p class="text-lilac/90 mt-3">Escolha o que precisa e veja o valor na hora, já com desconto. Sem compromisso.</p>
+    <p class="promo-only relative inline-block bg-volt text-ink text-xs font-extrabold rounded-full px-3 py-1 mb-4">BLACK NOVEMBER · 65% OFF</p>
+    <h2 class="h1 text-3xl md:text-4xl font-bold">Descubra quanto custa tirar seu projeto do papel.</h2>
+    <p id="orcIntro" class="text-lilac/90 mt-3 max-w-2xl">Escolha o tipo de projeto, o pacote e os extras. O valor muda na hora e você vê exatamente o que está incluso. Sem compromisso.</p><p id="orcHow" class="text-xs text-lilac/70 mt-2 max-w-2xl">O que muda o preço: tipo de projeto, pacote, extras escolhidos e prazo (o expresso tem acréscimo de 30%).</p>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10 relative">
       <div class="space-y-6">
         <fieldset><legend class="font-semibold text-sm mb-3">Tipo de projeto</legend><div id="qType" class="grid grid-cols-2 gap-3"></div></fieldset>
@@ -139,8 +173,8 @@
           <select id="qRush" class="mt-2"></select></label>
       </div>
       <div class="bg-ink border border-line rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
-        <div><p class="text-sm text-lilac/80">Investimento</p>
-        <p class="mt-2 flex items-center gap-2 flex-wrap"><s class="text-lilac/60 text-lg" id="qOld"></s><span class="bg-volt text-ink text-[11px] font-extrabold rounded-full px-2 py-0.5">-65%</span></p>
+        <div><p class="text-sm text-lilac/80" id="qLabel">Investimento</p>
+        <p id="qOldWrap" class="promo-only mt-2 flex items-center gap-2 flex-wrap"><s class="text-lilac/60 text-lg" id="qOld"></s><span class="bg-volt text-ink text-[11px] font-extrabold rounded-full px-2 py-0.5">-65%</span></p>
         <p class="font-display text-4xl lg:text-5xl font-extrabold text-volt" id="qPrice">R$ 0</p>
         <p class="text-sm font-semibold mt-1" id="qSave"></p>
         <div class="mt-6 border-t border-line pt-5"><p class="font-display font-bold text-lg">Que tal um upgrade? <span aria-hidden="true">🚀</span></p><p class="text-xs text-lilac/80 mt-1">Por pouco mais, você leva bem mais entregas. Deslize para comparar os pacotes.</p>
@@ -149,27 +183,16 @@
         <div class="car-nav"><button type="button" id="cPrev" aria-label="Pacote anterior">‹</button><div id="cDots" class="flex gap-2"></div><button type="button" id="cNext" aria-label="Próximo pacote">›</button></div>
       </div></div>
         <div class="mt-8 border-t border-line pt-5"><p class="text-sm font-bold mb-3">Você recebe:</p><ul id="qInc" class="space-y-2 text-sm text-lilac/95"></ul></div>
-        <p class="text-xs text-lilac/70 mt-5">Valor de referência. O orçamento final é fechado após conversa rápida sobre o escopo.</p></div>
-        <a id="qSend" href="#" target="_blank" rel="noopener" class="btn-volt rounded-full px-6 py-4 text-center mt-8">Garantir com desconto no WhatsApp</a>
+        <p id="qNote" class="text-xs text-lilac/70 mt-5">Valor de referência. O orçamento final é fechado após conversa rápida sobre o escopo.</p></div>
+        <a id="qSend" href="#" target="_blank" rel="noopener" class="btn-volt rounded-full px-6 py-4 text-center mt-8">SOLICITAR MEU ORÇAMENTO</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROCESSO -->
-<section id="processo" class="max-w-7xl mx-auto px-5 py-20">
-  <h2 class="h1 text-3xl md:text-5xl font-bold max-w-3xl mb-12">Do primeiro contato ao site no ar</h2>
-  <ol class="grid md:grid-cols-4 gap-6">
-    <li class="card p-7"><span class="font-display text-volt text-3xl font-bold">1</span><h3 class="font-bold text-lg mt-4">Conversa</h3><p class="text-sm text-lilac/90 mt-2">Entendo seu negócio, seu cliente ideal e a meta do site.</p></li>
-    <li class="card p-7"><span class="font-display text-volt text-3xl font-bold">2</span><h3 class="font-bold text-lg mt-4">Protótipo</h3><p class="text-sm text-lilac/90 mt-2">Você vê o design e aprova antes de eu codar.</p></li>
-    <li class="card p-7"><span class="font-display text-volt text-3xl font-bold">3</span><h3 class="font-bold text-lg mt-4">Desenvolvimento</h3><p class="text-sm text-lilac/90 mt-2">Código limpo, responsivo e testado em vários dispositivos.</p></li>
-    <li class="card p-7"><span class="font-display text-volt text-3xl font-bold">4</span><h3 class="font-bold text-lg mt-4">Entrega e suporte</h3><p class="text-sm text-lilac/90 mt-2">Publicação, treinamento e 30 dias de suporte incluso.</p></li>
-  </ol>
-</section>
-
 <!-- DEPOIMENTOS -->
 <section class="max-w-7xl mx-auto px-5 py-20">
-  <h2 class="h1 text-3xl md:text-5xl font-bold mb-12">Quem já trabalhou comigo</h2>
+  <h2 class="h1 text-3xl md:text-5xl font-bold mb-10">Quem já trabalhou com a DevStudio</h2>
   <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
     <figure class="card p-7 flex flex-col"><div class="text-volt tracking-widest text-sm" aria-label="5 estrelas">★★★★★</div><blockquote class="leading-relaxed mt-3 flex-1">“Em duas semanas o site já estava gerando orçamentos. Meu antigo nem abria direito no celular.”</blockquote><figcaption class="mt-6 flex items-center gap-3 text-sm"><span class="w-10 h-10 rounded-full bg-violet grid place-items-center font-bold shrink-0">CS</span><span><b>Carol Soares</b><br><span class="text-lilac/70">Cliente DevStudio</span></span></figcaption></figure>
     <figure class="card p-7 flex flex-col"><div class="text-volt tracking-widest text-sm" aria-label="5 estrelas">★★★★★</div><blockquote class="leading-relaxed mt-3 flex-1">“Entendeu o que eu precisava sem eu explicar duas vezes. Entregou antes do prazo.”</blockquote><figcaption class="mt-6 flex items-center gap-3 text-sm"><span class="w-10 h-10 rounded-full bg-violet grid place-items-center font-bold shrink-0">FV</span><span><b>Fernanda Videl</b><br><span class="text-lilac/70">Cliente DevStudio</span></span></figcaption></figure>
@@ -178,15 +201,48 @@
   </div>
 </section>
 
+<div class="max-w-7xl mx-auto px-5 pb-12 text-center"><a href="#" data-wa="proj" target="_blank" rel="noopener" class="btn-volt rounded-full px-7 py-4 inline-block">QUERO MEU SITE PROFISSIONAL</a></div>
+
+<!-- PROCESSO -->
+<section id="processo" class="max-w-7xl mx-auto px-5 py-20">
+  <h2 class="h1 text-3xl md:text-5xl font-bold max-w-3xl">Do primeiro contato ao site no ar</h2>
+  <p class="text-lilac/90 mt-4 mb-12 max-w-2xl">Nunca contratou um desenvolvedor? Você sempre sabe em que etapa está e aprova o visual antes de qualquer desenvolvimento.</p>
+  <ol class="grid md:grid-cols-4 gap-6">
+    <li class="card p-7"><span class="font-display text-volt text-3xl font-bold">01</span><h3 class="font-bold text-lg mt-4">Entendemos seu projeto</h3><p class="text-sm text-lilac/90 mt-2">Conversamos sobre seu negócio, seus objetivos e o que você precisa desenvolver.</p></li>
+    <li class="card p-7"><span class="font-display text-volt text-3xl font-bold">02</span><h3 class="font-bold text-lg mt-4">Planejamos a experiência</h3><p class="text-sm text-lilac/90 mt-2">Definimos a estrutura e a direção visual do projeto, e você aprova antes de seguir.</p></li>
+    <li class="card p-7"><span class="font-display text-volt text-3xl font-bold">03</span><h3 class="font-bold text-lg mt-4">Desenvolvemos seu site</h3><p class="text-sm text-lilac/90 mt-2">Transformamos o planejamento em uma experiência digital funcional e responsiva.</p></li>
+    <li class="card p-7"><span class="font-display text-volt text-3xl font-bold">04</span><h3 class="font-bold text-lg mt-4">Entregamos seu projeto</h3><p class="text-sm text-lilac/90 mt-2">Você recebe o site pronto, com as orientações para usá-lo e 30 dias de suporte.</p></li>
+  </ol>
+</section>
+
+<!-- CONDICOES -->
+<section id="condicoes" class="max-w-7xl mx-auto px-5 py-20">
+  <h2 class="h1 text-3xl md:text-5xl font-bold max-w-3xl">Condições claras, sem letra miúda</h2>
+  <p class="text-lilac/90 mt-4 mb-10 max-w-2xl">Antes de fechar, você já sabe o que recebe, quanto custa, como paga e em quanto tempo.</p>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+    <div class="card p-6"><h3 class="font-display font-bold text-lg">O que está incluso</h3><p class="text-sm text-lilac/90 mt-2">Tudo que aparece na lista de cada pacote na calculadora acima. O que não estiver na lista é orçado à parte, antes de começar.</p></div>
+    <div class="card p-6"><h3 class="font-display font-bold text-lg">Extras opcionais</h3><p class="text-sm text-lilac/90 mt-2">Blog, integração com CRM, animações avançadas, SEO técnico completo e multi-idioma, com valor informado na calculadora.</p></div>
+    <div class="card p-6"><h3 class="font-display font-bold text-lg">Pagamento</h3><p class="text-sm text-lilac/90 mt-2">50% na aprovação do protótipo e 50% na entrega. Aceito Pix e cartão.</p></div>
+    <div class="card p-6"><h3 class="font-display font-bold text-lg">Prazo e suporte</h3><p class="text-sm text-lilac/90 mt-2">Prazo padrão até 7 dias na landing page e no institucional, conforme o escopo, e a partir de 3 dias no expresso. Ele começa após a aprovação do protótipo e o recebimento dos materiais. 30 dias de suporte incluso.</p></div>
+  </div>
+  <p class="promo-only text-sm text-lilac/80 mt-6 max-w-3xl">Os valores promocionais valem até <span id="condFim"></span>. O preço de referência é o valor sem a promoção.</p>
+</section>
+
 <!-- FAQ -->
 <section id="faq" class="max-w-3xl mx-auto px-5 py-24">
   <h2 class="h1 text-3xl md:text-4xl font-bold mb-10">Perguntas frequentes</h2>
   <div class="space-y-3">
-    <details class="card px-6 py-5"><summary class="flex justify-between font-semibold">Quanto tempo leva para ficar pronto?<span class="plus text-volt text-2xl leading-none">+</span></summary><p class="mt-3 text-lilac/90">O prazo depende do projeto. Landing page e site institucional: 7 dias (3 no expresso). Loja virtual: 11 dias (4 no expresso). Sistema ou painel: 13 dias (5 no expresso). O modo expresso tem acréscimo de 30% no valor.</p></details>
-    <details class="card px-6 py-5"><summary class="flex justify-between font-semibold">O site vai funcionar bem no celular?<span class="plus text-volt text-2xl leading-none">+</span></summary><p class="mt-3 text-lilac/90">Sim. Desenvolvo pensando primeiro no celular e testo em várias telas antes da entrega.</p></details>
+    <details class="card px-6 py-5"><summary class="flex justify-between font-semibold">Quanto tempo leva para ficar pronto?<span class="plus text-volt text-2xl leading-none">+</span></summary><p class="mt-3 text-lilac/90">Landing page e site institucional: até 7 dias, conforme o escopo (a partir de 3 dias no expresso). Loja virtual: 11 dias (4 no expresso). Sistema ou painel: 13 dias (5 no expresso). O prazo começa a contar após a aprovação do protótipo e o recebimento dos materiais, e o expresso tem acréscimo de 30%.</p></details>
+    <details class="card px-6 py-5"><summary class="flex justify-between font-semibold">O site vai funcionar bem em celulares e tablets?<span class="plus text-volt text-2xl leading-none">+</span></summary><p class="mt-3 text-lilac/90">Sim. Desenvolvo pensando primeiro no celular e testo em várias telas antes da entrega.</p></details>
     <details class="card px-6 py-5"><summary class="flex justify-between font-semibold">Como funciona o pagamento?<span class="plus text-volt text-2xl leading-none">+</span></summary><p class="mt-3 text-lilac/90">50% na aprovação do protótipo e 50% na entrega. Aceito Pix e cartão.</p></details>
-    <details class="card px-6 py-5"><summary class="flex justify-between font-semibold">Posso editar o conteúdo depois?<span class="plus text-volt text-2xl leading-none">+</span></summary><p class="mt-3 text-lilac/90">Pode. Se precisar de painel de edição, incluo no projeto e ensino você a usar.</p></details>
     <details class="card px-6 py-5"><summary class="flex justify-between font-semibold">Hospedagem e domínio estão inclusos?<span class="plus text-volt text-2xl leading-none">+</span></summary><p class="mt-3 text-lilac/90">Eu configuro tudo na sua conta. Você fica dono do domínio e da hospedagem, sem mensalidade escondida.</p></details>
+    <details class="card px-6 py-5"><summary class="flex justify-between font-semibold">O site será meu depois da entrega?<span class="plus text-volt text-2xl leading-none">+</span></summary><p class="mt-3 text-lilac/90">Sim. O código, o domínio e a hospedagem ficam na sua conta, sem amarras.</p></details>
+    <details class="card px-6 py-5"><summary class="flex justify-between font-semibold">Posso solicitar alterações durante o desenvolvimento?<span class="plus text-volt text-2xl leading-none">+</span></summary><p class="mt-3 text-lilac/90">Sim. Você aprova o protótipo antes do desenvolvimento, e os ajustes combinados no escopo estão inclusos. O que for novidade fora do escopo é orçado à parte, antes de fazer.</p></details>
+    <details class="card px-6 py-5"><summary class="flex justify-between font-semibold">Posso atualizar o conteúdo depois?<span class="plus text-volt text-2xl leading-none">+</span></summary><p class="mt-3 text-lilac/90">Pode. Se precisar de painel de edição, incluo no projeto e ensino você a usar.</p></details>
+    <details class="card px-6 py-5"><summary class="flex justify-between font-semibold">Vocês fazem integração com WhatsApp?<span class="plus text-volt text-2xl leading-none">+</span></summary><p class="mt-3 text-lilac/90">Sim. O site tem botão de WhatsApp e links com a mensagem já pronta, para o cliente chamar você em um toque. Integração com CRM está disponível como extra.</p></details>
+    <details class="card px-6 py-5"><summary class="flex justify-between font-semibold">Como funciona o suporte depois da entrega?<span class="plus text-volt text-2xl leading-none">+</span></summary><p class="mt-3 text-lilac/90">Todo projeto tem 30 dias de suporte incluso (60 ou 90 dias nos pacotes Profissional e Premium). Nesse período eu corrijo ajustes e tiro suas dúvidas de uso.</p></details>
+    <details class="card px-6 py-5"><summary class="flex justify-between font-semibold">Quais informações preciso fornecer para começar?<span class="plus text-volt text-2xl leading-none">+</span></summary><p class="mt-3 text-lilac/90">Logo e cores (se já tiver), fotos, textos e dados de contato. Se faltar algo, conversamos e eu oriento o que priorizar.</p></details>
+    <details class="card px-6 py-5"><summary class="flex justify-between font-semibold">E se eu precisar de novas funcionalidades depois?<span class="plus text-volt text-2xl leading-none">+</span></summary><p class="mt-3 text-lilac/90">Dá para evoluir o site. Avalio o que você precisa e passo um orçamento só do que for novo.</p></details>
   </div>
 </section>
 
@@ -204,7 +260,7 @@
         <input id="fMail" type="email" placeholder="E-mail" aria-label="E-mail" autocomplete="email">
         <textarea id="fMsg" rows="3" placeholder="O que você quer construir?" aria-label="Mensagem"></textarea>
         <p id="fErr" class="text-sm text-[#ff8a8a] hidden" role="alert">Preencha nome e mensagem para continuar.</p>
-        <button id="fSend" class="btn-volt rounded-full px-6 py-4 w-full">Enviar mensagem</button>
+        <button id="fSend" class="btn-volt rounded-full px-6 py-4 w-full">SOLICITAR MEU ORÇAMENTO</button>
       </div>
     </div>
   </div>

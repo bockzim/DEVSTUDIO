@@ -52,3 +52,6 @@ Os links dos cards apontam para `.../index.html` (e não só para a pasta). Assi
 
 ## Domínio
 Domínio próprio: `studiodev.site` (arquivo `CNAME`). DNS na Hostinger: 4 registros A para 185.199.108.153, 185.199.109.153, 185.199.110.153 e 185.199.111.153, e CNAME `www` para `bockzim.github.io`. Depois, em Settings > Pages do repositório, confirmar o Custom domain e marcar Enforce HTTPS.
+
+## Versão de teste (copy e conversão)
+Estrutura da página: hero, projetos, serviços, diferenciais, calculadora, provas sociais, processo, condições, FAQ e CTA final. Em `js/config.js`, `promo:true/false` liga ou desliga a faixa Black November, as vagas, o preço "de" cortado e os selos de desconto de uma vez. Cada projeto tem `seg`, `desafio` e `solucao`.

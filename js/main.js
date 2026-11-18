@@ -13,7 +13,14 @@ mn.querySelectorAll("a").forEach(a=>a.onclick=()=>{mn.classList.add("hidden");mb
 const g=$("#glow");
 if(matchMedia("(hover:hover)").matches)addEventListener("pointermove",e=>{g.style.left=e.clientX+"px";g.style.top=e.clientY+"px"});else g.style.display="none";
 
-$("#slots").textContent=(3+Math.floor(Math.random()*3))+" vagas abertas para este mês";
+// promoção (CFG.promo=false remove faixa, vagas, selos e preços cortados)
+if(!CFG.promo)document.querySelectorAll(".promo-only").forEach(e=>e.remove());
+else $("#slots").textContent=(3+Math.floor(Math.random()*3))+" vagas abertas para este mês";
+const _p0=CFG.types[0].tiers[0].p;
+$("#heroOffer").textContent="Landing page a partir de "+brl(_p0)+(CFG.promo?" até "+CFG.promoFim:"");
+const cf=$("#condFim");if(cf)cf.textContent=CFG.promoFim+" (Black November)";
+document.querySelectorAll('[data-wa="proj"]').forEach(a=>a.href=wa("Olá! Vi o site da DevStudio e quero um site para o meu negócio."));
+
 // rotating word
 const words=["dorme.","trabalha.","viaja.","descansa."];let wi=0;
 setInterval(()=>{wi=(wi+1)%words.length;$("#rot").textContent=words[wi]},2400);
@@ -24,9 +31,9 @@ for(let i=0;i<14;i++){const b=document.createElement("div");b.className="flex-1 
 let leads=0;
 const tick=()=>{if(document.hidden)return;leads+=Math.random()<.6?1:0;$("#leads").textContent=leads;$("#conv").textContent=(5+Math.random()*3).toFixed(1).replace(".",",")+"%";
  [...bars.children].forEach((b,i,a)=>{if(i<a.length-1)b.style.height=a[i+1].style.height});bars.lastChild.style.height=(25+Math.random()*70)+"%"};
-leads=12;tick();setInterval(tick,1600);
+leads=132;tick();setInterval(tick,1600);
 const names=["Marina","Rafael","Camila","João","Beatriz","Lucas"];
-setInterval(()=>{const n=names[Math.floor(Math.random()*names.length)];const p=$("#ago").parentElement;p.innerHTML=`<b>${n}</b> pediu um orçamento<br><span class="text-lilac/70 text-xs">agora mesmo</span>`;p.previousElementSibling.textContent=n[0]},4200);
+setInterval(()=>{const n=names[Math.floor(Math.random()*names.length)];const p=$("#ago").parentElement;p.innerHTML=`<b>${n}</b> pediu um orçamento<br><span class="text-lilac/70 text-xs" id="ago">agora mesmo</span>`;p.previousElementSibling.textContent=n[0]},4200);
 
 // counters
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;io.unobserve(e.target);const el=e.target,end=+el.dataset.count;let s=null;
@@ -56,26 +63,27 @@ function drawProjects(f){
  pj.innerHTML=CFG.projects.filter(p=>f==="all"||p.k===f).map(p=>`
  <${p.url?`a href="${p.url}" target="_blank" rel="noopener" aria-label="Abrir ${esc(p.t)}"`:"div"} class="card proj block overflow-hidden">
   <div class="relative">${preview(p)}<span class="absolute top-3 right-3 text-xs font-bold rounded-full px-3 py-1 ${p.k==="demo"?"bg-ink text-lilac":"bg-volt text-ink"}">${p.k==="demo"?"Demo":"Cliente real"}</span></div>
-  <div class="p-6"><h3 class="font-display font-bold text-lg">${esc(p.t)}</h3><p class="text-sm text-lilac/90 mt-2">${esc(p.d)}</p>
+  <div class="p-6"><p class="text-xs font-semibold uppercase tracking-wide text-lilac/70">${esc(p.seg||"")}</p><h3 class="font-display font-bold text-lg mt-1">${esc(p.t)}</h3>
+   ${p.desafio?`<dl class="mt-3 space-y-2.5 text-sm"><div><dt class="text-xs font-bold text-volt">DESAFIO</dt><dd class="text-lilac/90">${esc(p.desafio)}</dd></div><div><dt class="text-xs font-bold text-volt">SOLUÇÃO</dt><dd class="text-lilac/90">${esc(p.solucao)}</dd></div></dl>`:`<p class="text-sm text-lilac/90 mt-2">${esc(p.d)}</p>`}
    <div class="flex flex-wrap gap-2 mt-4">${p.tags.map(t=>`<span class="text-xs border border-line rounded-full px-3 py-1 text-lilac">${esc(t)}</span>`).join("")}</div>
-   ${p.url?'<p class="mt-4 text-sm font-bold text-volt">Visitar site online</p>':'<p class="mt-4 text-sm text-lilac/60">Projeto demonstrativo</p>'}</div>
+   ${p.url?`<p class="mt-4 text-sm font-bold text-volt">${p.k==="demo"?"Ver demonstração":"Visitar site online"}</p>`:'<p class="mt-4 text-sm text-lilac/60">Projeto demonstrativo</p>'}</div>
  </${p.url?"a":"div"}>`).join("");
 }
 drawProjects("all");
 document.querySelectorAll("#filters .chip").forEach(c=>c.onclick=()=>{document.querySelectorAll("#filters .chip").forEach(x=>x.setAttribute("aria-pressed",x===c));drawProjects(c.dataset.f)});
 
 // calculator
-const OFF=CFG.off||.65,was=p=>Math.round(p/(1-OFF)/10)*10;
+const OFF=CFG.off||.65,was=p=>Math.round(p/(1-OFF)/10)*10,SP=!!CFG.mostrarPrecos;
 const qt=$("#qType"),qe=$("#qExtras"),qr=$("#qRush"),qT=$("#qTier");
-qt.innerHTML=CFG.types.map((t,i)=>`<label class="opt"><input type="radio" name="qt" value="${i}" ${i===0?"checked":""}><span class="block font-semibold text-sm leading-tight">${t.n}</span><s class="block text-lilac/60 text-xs mt-2">${brl(was(t.tiers[0].p))}</s><span class="block font-display font-bold text-volt"><small class="font-body text-[10px] font-semibold text-lilac/70">a partir de </small>${brl(t.tiers[0].p)}</span></label>`).join("");
-qe.innerHTML=CFG.extras.map((x,i)=>`<label class="flex items-center gap-3 text-sm cursor-pointer"><input type="checkbox" value="${i}"><span class="flex-1">${x.n}</span><span class="text-right leading-tight"><s class="block text-lilac/50 text-xs">${brl(was(x.p))}</s><span class="text-lilac/90">+${brl(x.p)}</span></span></label>`).join("");
+qt.innerHTML=CFG.types.map((t,i)=>`<label class="opt"><input type="radio" name="qt" value="${i}" ${i===0?"checked":""}><span class="block font-semibold text-sm leading-tight">${t.n}</span>${SP?`${CFG.promo?`<s class="block text-lilac/60 text-xs mt-2">${brl(was(t.tiers[0].p))}</s>`:""}<span class="block font-display font-bold text-volt mt-1"><small class="font-body text-[10px] font-semibold text-lilac/70">a partir de </small>${brl(t.tiers[0].p)}</span>`:`<span class="block text-xs text-lilac/70 mt-2">entrega em ${t.dias[0]} dias</span>`}</label>`).join("");
+qe.innerHTML=CFG.extras.map((x,i)=>`<label class="flex items-center gap-3 text-sm cursor-pointer"><input type="checkbox" value="${i}"><span class="flex-1">${x.n}</span>${SP?`<span class="text-right leading-tight">${CFG.promo?`<s class="block text-lilac/50 text-xs">${brl(was(x.p))}</s>`:""}<span class="text-lilac/90">+${brl(x.p)}</span></span>`:""}</label>`).join("");
 let tier=0;
 const dias=n=>n+(n===1?" dia":" dias");
 const cum=(t,k)=>t.tiers.slice(0,k+1).flatMap((x,i)=>x.inc.map(v=>({v,up:i>0})));
 function drawTiers(){
  const t=CFG.types[qt.querySelector(":checked").value];
  qT.innerHTML=t.tiers.map((x,i)=>`<label class="opt tier">${i===1?'<span class="tier-hot">MAIS ESCOLHIDO</span>':""}<input type="radio" name="qk" value="${i}" ${i===tier?"checked":""}>
-  <span class="block font-display font-bold text-lg">${x.n}</span><s class="block text-lilac/60 text-xs mt-3">${brl(was(x.p))}</s><span class="block font-display font-extrabold text-3xl text-volt">${brl(x.p)}</span>
+  <span class="block font-display font-bold text-lg">${x.n}</span>${SP?`${CFG.promo?`<s class="block text-lilac/60 text-xs mt-3">${brl(was(x.p))}</s>`:""}<span class="block font-display font-extrabold text-3xl text-volt ${CFG.promo?"":"mt-3"}">${brl(x.p)}</span>`:""}
   <span class="block text-xs text-lilac/80 mt-3">${i===0?"O essencial para ir ao ar com qualidade":`Tudo do ${t.tiers[i-1].n}, mais:`}</span>
   <ul class="mt-3 space-y-2 text-[13px] leading-snug text-lilac/95 flex-1">${x.inc.map(v=>`<li class="flex gap-2"><span class="text-volt font-bold">${i?"★":"✓"}</span><span>${v}</span></li>`).join("")}</ul>
   <span class="tier-btn">${i===tier?"Selecionado ✓":"Escolher "+x.n}</span></label>`).join("");
@@ -95,17 +103,22 @@ $("#cPrev").onclick=()=>goTier(Math.max(0,curIdx()-1));
 $("#cNext").onclick=()=>goTier(Math.min(qT.children.length-1,curIdx()+1));
 function drawRush(){
  const t=CFG.types[qt.querySelector(":checked").value],cur=qr.value||"1";
- qr.innerHTML=`<option value="1">Normal (${dias(t.dias[0])})</option><option value="1.3">Expresso (${dias(t.dias[1])}, +30%)</option>`;qr.value=cur;
+ qr.innerHTML=`<option value="1">Normal (${dias(t.dias[0])})</option><option value="1.3">Expresso (${dias(t.dias[1])}${SP?", +30%":", com acréscimo"})</option>`;qr.value=cur;
 }
 function calc(){
  const t=CFG.types[qt.querySelector(":checked").value],k=t.tiers[tier],ex=[...qe.querySelectorAll(":checked")].map(c=>CFG.extras[c.value]),r=+qr.value;
  const base=k.p+ex.reduce((s,x)=>s+x.p,0),old=was(k.p)+ex.reduce((s,x)=>s+was(x.p),0);
  const total=Math.round(base*r),oldT=Math.round(old*r),d=t.dias[r>1?1:0];
- $("#qPrice").textContent=brl(total);$("#qOld").textContent=brl(oldT);$("#qSave").textContent="Você economiza "+brl(oldT-total)+" · Pacote "+k.n+" · entrega em "+dias(d);
+ if(SP){$("#qPrice").textContent=brl(total);if(CFG.promo)$("#qOld").textContent=brl(oldT);$("#qSave").textContent=(CFG.promo?"Você economiza "+brl(oldT-total)+" · ":"")+"Pacote "+k.n+" · entrega em "+dias(d);}
+ else{$("#qPrice").textContent=t.n;$("#qSave").textContent="Pacote "+k.n+" · entrega em "+dias(d)}
  $("#qInc").innerHTML=cum(t,tier).map(i=>`<li class="flex gap-2"><span class="text-volt font-bold">${i.up?"★":"✓"}</span><span>${i.v}</span></li>`).join("")+ex.map(x=>`<li class="flex gap-2"><span class="text-volt font-bold">+</span><span>${x.n}</span></li>`).join("")+(r>1?`<li class="flex gap-2"><span class="text-volt font-bold">⚡</span><span>Entrega expressa em ${dias(d)}</span></li>`:"");
- const link=wa(`Olá! Montei um orçamento no seu site (Black November):\n• Projeto: ${t.n} (pacote ${k.n})\n• Extras: ${ex.length?ex.map(x=>x.n).join(", "):"nenhum"}\n• Prazo: ${r>1?"expresso":"normal"} (${dias(d)})\n• De ${brl(oldT)} por ${brl(total)}\nQuero garantir esse valor!`);
+ const link=wa(`Olá! Montei um orçamento no seu site${CFG.promo?" (Black November)":""}:\n• Projeto: ${t.n} (pacote ${k.n})\n• Extras: ${ex.length?ex.map(x=>x.n).join(", "):"nenhum"}\n• Prazo: ${r>1?"expresso":"normal"} (${dias(d)})\n${SP?`• ${CFG.promo?`De ${brl(oldT)} por ${brl(total)}`:`Valor: ${brl(total)}`}\n`:""}Quero receber o valor desse orçamento!`);
  $("#qSend").href=link;
 }
+if(!SP){$("#qLabel").textContent="Sua seleção";const ow=$("#qOldWrap");if(ow)ow.remove();
+ $("#qNote").textContent="O valor é combinado pelo WhatsApp, conforme o escopo do seu projeto. Sem compromisso.";
+ $("#orcIntro").textContent="Escolha o tipo de projeto, o pacote e os extras. Você vê tudo que está incluso e recebe o valor personalizado pelo WhatsApp. Sem compromisso.";
+ $("#orcHow").textContent="O que define o valor: tipo de projeto, pacote, extras escolhidos e prazo."}
 qt.addEventListener("change",()=>{drawTiers();drawRush();calc()});
 qT.addEventListener("change",e=>{tier=+e.target.value;const sl=qT.scrollLeft;drawTiers();qT.scrollLeft=sl;calc()});
 qe.addEventListener("change",calc);qr.addEventListener("change",calc);
@@ -113,7 +126,7 @@ drawTiers();drawRush();calc();
 
 // faixa Black November
 (()=>{
- const bf=$("#bf"),end=new Date(new Date().getFullYear(),10,30,23,59,59);
+ const bf=$("#bf");if(!bf)return;const end=new Date(new Date().getFullYear(),10,30,23,59,59);
  if(Date.now()>end){bf.remove();return}
  const lp=CFG.types[0].tiers[0];
  const left=()=>{const d=end-Date.now(),D=Math.floor(d/864e5),H=Math.floor(d%864e5/36e5),M=Math.floor(d%36e5/6e4);return `Termina em ${D}d ${String(H).padStart(2,"0")}h ${String(M).padStart(2,"0")}min`};
@@ -129,3 +142,34 @@ $("#fSend").onclick=()=>{
  $("#fErr").classList.add("hidden"); trackLead("formulario");
  window.open(wa(`Olá! Sou ${n}${e?` (${e})`:""}.\n${m}`),"_blank","noopener");
 };
+
+// serviços: seleciona o tipo na calculadora e rola até ela
+document.querySelectorAll("[data-pick]").forEach(b=>b.onclick=()=>{
+ const r=qt.querySelector(`input[value="${b.dataset.pick}"]`);r.checked=true;r.dispatchEvent(new Event("change",{bubbles:true}));
+ $("#orcamento").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth"});
+});
+
+// vitrine da primeira tela: mostra todos os sites, um de cada vez
+(()=>{
+ const L=CFG.projects,A=$("#scA"),B=$("#scB"),dots=$("#scDots");
+ if(!A||!L.length)return;
+ const src=p=>`assets/previews/${p.slug}.webp`;
+ L.forEach(p=>{new Image().src=src(p)});
+ dots.innerHTML=L.map((p,i)=>`<button type="button" data-i="${i}" aria-label="Ver ${esc(p.t)}" class="sc-dot"><i></i></button>`).join("");
+ let cur=0,front=A,timer=null;
+ const info=i=>{const p=L[i],l=$("#scLink");
+  $("#scHost").textContent=p.host;$("#scName").textContent=p.t;$("#scKind").textContent=p.k==="demo"?"Demonstração de projeto":"Cliente real, site no ar";
+  l.href=p.url||"#trabalhos";l.setAttribute("aria-label","Abrir "+p.t);
+  dots.querySelectorAll(".sc-dot").forEach((d,k)=>d.setAttribute("aria-current",k===i))};
+ const show=i=>{
+  cur=i;const p=L[i],n=front===A?B:A,old=front;
+  n.alt="Tela inicial do site "+p.t;
+  const go=()=>{n.onload=null;n.style.opacity=1;old.style.opacity=0;front=n;info(i)};
+  n.onload=go;n.src=src(p);if(n.complete&&n.naturalWidth)go();
+ };
+ A.alt="Tela inicial do site "+L[0].t;A.src=src(L[0]);info(0);
+ const next=()=>{if(!document.hidden)show((cur+1)%L.length)};
+ const start=()=>{clearInterval(timer);if(!matchMedia("(prefers-reduced-motion:reduce)").matches)timer=setInterval(next,3200)};
+ dots.addEventListener("click",e=>{const b=e.target.closest(".sc-dot");if(!b)return;show(+b.dataset.i);start()});
+ start();
+})();
